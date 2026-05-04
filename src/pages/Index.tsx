@@ -1,7 +1,10 @@
 import { Mail, Linkedin } from "lucide-react";
 import portrait from "@/assets/rebeca.jpg";
-import partnership1 from "@/assets/site-img2.jpg";
-import partnership2 from "@/assets/site-img3.jpg";
+import project1 from "@/assets/project-1.png";
+import project2 from "@/assets/project-2.png";
+import project3 from "@/assets/project-3.png";
+import project4 from "@/assets/project-4.png";
+import mtbankHeader from "@/assets/mtbank-presentation.jpeg";
 
 const marqueeWords = [
   "Strategy Development", "Implementation Roadmap", "Forecasting", "Budgeting",
@@ -17,49 +20,42 @@ const marqueeWords = [
 ];
 
 const partnerships = [
-  { src: partnership1, label: "Partnership" },
-  { src: partnership2, label: "Partnership" },
-  { src: partnership1, label: "Partnership" },
-  { src: partnership2, label: "Partnership" },
+  { src: project1, label: "M&T Bank" },
+  { src: project2, label: "Gosta Labs" },
+  { src: project3, label: "Hult Cup" },
+  { src: project4, label: "OPPO" },
 ];
 
 const projects = [
   {
     client: "M&T Bank",
-    tag: "Strategy",
-    title: "Channel Architecture & Growth Plan",
-    desc: "Cross-segment commercial framework focused on customer retention and product penetration.",
-    cover: partnership1,
+    title: "Engaging gig workers with M&T Capabilities",
+    desc: "In the U.S. it is projected that by 2028 the population of gig workers will be more than half of the population. How can M&T optimize its services to keep relevant to this population with such specific needs.",
   },
   {
     client: "Gosta Labs",
-    tag: "Analytics",
-    title: "Demand Sensing & Forecasting",
-    desc: "Forecasting framework to reduce over-stock and inform commercial planning.",
-    cover: partnership2,
+    title: "North America Expansion, possible pathways",
+    desc: "A growing healthcare tech company with footprint in Europe, Asia, and Oceania wants to expand. On this project the regulation, financial viability, and market access.",
   },
   {
     client: "Hult Cup",
-    tag: "Operations",
-    title: "Trade Investment Optimization",
-    desc: "Reallocated promo investment toward elasticity-positive SKUs and channels.",
-    cover: partnership1,
+    title: "How to engage multiple campus in the summer",
+    desc: "With campuses in Boston, London, Dubai, New York and San Francisco. The challenge here was to develop something that would keep students engaged, and showcase Hult as an institution related to sports.",
   },
   {
     client: "Planet Fitness",
-    tag: "Business Intelligence",
-    title: "Member Insights Dashboard",
-    desc: "BI layer translating member behavior into retention and acquisition decisions.",
-    cover: partnership2,
+    title: "ESG assessment and improvement plan",
+    desc: "In a growing services industry, how to provide meaningful value when it comes to ESG improvements. The challenge here was to implement actions that would land frictionless to thousands of franchisees.",
   },
 ];
 
 const howIDoIt = [
-  { n: "01", title: "Listen", desc: "Start with the business problem, the people, and the unit economics." },
-  { n: "02", title: "Diagnose", desc: "Frame the question with MECE thinking and identify the value drivers that matter." },
-  { n: "03", title: "Model", desc: "Build the data, forecasts and scenarios that turn intuition into evidence." },
-  { n: "04", title: "Recommend", desc: "Translate findings into a clear, sequenced plan a team can actually execute." },
-  { n: "05", title: "Operate", desc: "Set the cadence — dashboards, rituals and ownership — so impact compounds." },
+  { n: "01", title: "Listen", desc: "Gather all information possible from key stakeholders, data, and industry scenarios. Interview relevant people, and clarify assumptions." },
+  { n: "02", title: "Diagnose", desc: "For each possible issue, a different framework might be adequate, the traditional ones give insight, the new ones give actionable directions." },
+  { n: "03", title: "Model", desc: "Build the data models, forecasts and scenarios that turn assumptions into evidence." },
+  { n: "04", title: "Validate Solutions", desc: "Test models, share preliminary direction with client, and validate feasibility." },
+  { n: "05", title: "Recommend", desc: "Translate findings into a clear, sequenced plan a team can actually execute." },
+  { n: "06", title: "Operate", desc: "Engage key stakeholders, delegate activities, and define KPIs to be evaluated. What is not measured is not done." },
 ];
 
 const Marquee = () => {
@@ -102,8 +98,8 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 grain opacity-60" />
-        <div className="container relative grid grid-cols-1 gap-12 pb-20 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
+        <div className="container relative grid grid-cols-1 items-center gap-12 pb-20 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-8">
             <div className="flex items-center gap-3 text-muted-foreground">
               <span className="h-px w-10 bg-ink/30" />
               <span className="eyebrow text-ink">Business Strategist</span>
@@ -112,23 +108,18 @@ const Index = () => {
               Rebeca <em className="font-normal italic text-primary">Batista</em>
             </h1>
             <div className="mt-8 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
+              <p>Over a decade of global experience in consumer goods and retail strategy.</p>
               <p>
-                Welcome to my professional portfolio! I am a seasoned business strategist with
-                over a decade of experience in retail strategy and trade marketing for global
-                consumer brands.
-              </p>
-              <p>
-                Currently, I am pursuing my MBA with a specialization in Data Analytics,
-                allowing me to combine my industry expertise with data-driven decision-making
-                to deliver impactful business strategies.
+                I bridge the gap between brand long term goals and rigorous analytical strategy
+                to drive scalable results and lasting impact.
               </p>
             </div>
           </div>
 
-          <div className="relative lg:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-sm shadow-soft">
+          <div className="relative lg:col-span-4">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-sm shadow-soft">
               <img src={portrait} alt="Portrait of Rebeca Batista" className="h-full w-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-5">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-4">
                 <span className="eyebrow text-background">Strategy · Analytics · Operations</span>
               </div>
             </div>
@@ -163,9 +154,9 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Partnerships gallery */}
+        {/* Recent projects gallery */}
         <div className="mt-16">
-          <span className="eyebrow text-muted-foreground">Partnerships</span>
+          <span className="eyebrow text-muted-foreground">Recent Projects</span>
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
             {partnerships.map((p, i) => (
               <div
@@ -201,7 +192,7 @@ const Index = () => {
             </div>
             <div className="lg:col-span-5">
               <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-soft">
-                <img src={partnership2} alt="About header" className="h-full w-full object-cover" />
+                <img src={mtbankHeader} alt="Rebeca presenting at M&T Bank" className="h-full w-full object-cover" />
               </div>
             </div>
           </div>
@@ -209,20 +200,10 @@ const Index = () => {
           <div className="mt-16 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2">
             {projects.map((p) => (
               <article key={p.client} className="group relative bg-background transition-colors hover:bg-cream">
-                <div className="aspect-[16/10] overflow-hidden bg-paper">
-                  <img
-                    src={p.cover}
-                    alt={`${p.client} project cover`}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
                 <div className="p-8">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="display text-xl text-ink md:text-2xl">{p.client}</span>
-                    <span className="eyebrow text-primary">{p.tag}</span>
-                  </div>
+                  <span className="eyebrow text-primary">{p.client}</span>
                   <h3 className="display mt-4 text-2xl text-ink md:text-3xl">{p.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
                 </div>
               </article>
             ))}
