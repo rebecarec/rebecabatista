@@ -84,6 +84,11 @@ const Index = () => {
             <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-warm text-primary-foreground display text-base font-semibold">R</span>
             <span className="display text-base">Rebeca Batista</span>
           </a>
+          <div className="hidden gap-10 md:flex">
+            {[["About", "#about"], ["Expertise", "#expertise"], ["How I do it", "#how"]].map(([l, h]) => (
+              <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-ink">{l}</a>
+            ))}
+          </div>
           <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
             Contact
           </a>
