@@ -175,7 +175,7 @@ const Index = () => {
 
       {/* Expertise */}
       <section id="expertise" className="border-y border-border/60 bg-paper">
-        <div className="container py-24">
+        <div className="container pt-24 pb-12">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <span className="eyebrow text-primary">02 — Expertise</span>
@@ -226,7 +226,7 @@ const Index = () => {
         </h2>
         <ul className="mt-12 divide-y divide-border border-y border-border">
           {howIDoIt.map((p) => (
-            <li key={p.n} className="grid grid-cols-12 items-baseline gap-6 py-5">
+            <li key={p.n} className="grid grid-cols-12 items-center gap-6 py-5">
               <span className="display col-span-2 text-lg text-muted-foreground md:col-span-1">{p.n}</span>
               <h3 className="display col-span-10 text-2xl text-ink md:col-span-3 md:text-3xl">{p.title}</h3>
               <p className="col-span-12 text-muted-foreground md:col-span-8">{p.desc}</p>
@@ -261,6 +261,15 @@ const Index = () => {
                 className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://github.com/rebecarec"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
