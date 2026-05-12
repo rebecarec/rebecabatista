@@ -30,32 +30,32 @@ const projects = [
   {
     client: "M&T Bank",
     title: "Engaging gig workers with M&T Capabilities",
-    desc: "In the U.S. it is projected that by 2028 the population of gig workers will be more than half of the population. How can M&T optimize its services to keep relevant to this population with such specific needs.",
+    desc: "In the U.S., it is projected that by 2028, the population of gig workers will be more than half of the population. On this project, I worked on a proposal to help M&T Bank optimize its services to this population with such specific needs.",
   },
   {
     client: "Gosta Labs",
     title: "North America Expansion, possible pathways",
-    desc: "A growing healthcare tech company with footprint in Europe, Asia, and Oceania wants to expand. On this project the regulation, financial viability, and market access.",
+    desc: "A growing healthcare AI company with a footprint in Europe, Asia, and Oceania wanted to understand more about the North America scenario. On this project, I worked on analyzing regulation, financial viability, GTM strategy, and market access paths.",
   },
   {
     client: "Hult Cup",
     title: "How to engage multiple campus in the summer",
-    desc: "With campuses in Boston, London, Dubai, New York and San Francisco. The challenge here was to develop something that would keep students engaged, and showcase Hult as an institution related to sports.",
+    desc: "With campuses in Boston, London, Dubai, New York, and San Francisco, the challenge here was to develop a project that would keep students engaged over summer, engage the community with the World Cup, and promote a friendly competition between campuses.",
   },
   {
     client: "Planet Fitness",
     title: "ESG assessment and improvement plan",
-    desc: "In a growing services industry, how to provide meaningful value when it comes to ESG improvements. The challenge here was to implement actions that would land frictionless to thousands of franchisees.",
+    desc: "In a growing services industry, it is important to know how to provide real value when it comes to ESG improvements. The challenge here was to implement ESG initiatives with real-life impacts, as frictionless to the franchisees as possible.",
   },
 ];
 
 const howIDoIt = [
-  { n: "01", title: "Listen", desc: "Gather all information possible from key stakeholders, data, and industry scenarios. Interview relevant people, and clarify assumptions." },
-  { n: "02", title: "Diagnose", desc: "For each possible issue, a different framework might be adequate, the traditional ones give insight, the new ones give actionable directions." },
-  { n: "03", title: "Model", desc: "Build the data models, forecasts and scenarios that turn assumptions into evidence." },
-  { n: "04", title: "Validate Solutions", desc: "Test models, share preliminary direction with client, and validate feasibility." },
-  { n: "05", title: "Recommend", desc: "Translate findings into a clear, sequenced plan a team can actually execute." },
-  { n: "06", title: "Operate", desc: "Engage key stakeholders, delegate activities, and define KPIs to be evaluated. What is not measured is not done." },
+  { n: "01", title: "Listen", desc: "I like to start gathering all information possible from key stakeholders, data, and industry scenarios. Interviewing relevant specialists and clarifying assumptions is also very relevant for me, since I know research can only tell us so much." },
+  { n: "02", title: "Diagnose", desc: "For each possible issue, a different framework might be adequate to diagnose the issue, the traditional ones like McKinsey or BCG matrices can give insight, and the new ones like Platform Canvas can give actionable directions." },
+  { n: "03", title: "Model", desc: "Building the data models, forecasts, and scenarios, can turn assumptions into testable strategies. Here is where we connect the problem with possible solutions." },
+  { n: "04", title: "Validate Solutions", desc: "Connecting problems and solutions is not enough, I believe it is also relevant to test these models, share preliminary direction with the client, and validate feasibility with real-world data or prototyping." },
+  { n: "05", title: "Recommend", desc: "After the most impactful plan is validated, it is important to translate complex findings into a clear, sequenced playbook that the client can understand and execute." },
+  { n: "06", title: "Operate", desc: "With the plan developed, it is extremely important to engage key stakeholders, delegate activities, and define KPIs to be evaluated. The success depends on the strategy leaving the paper and turning into real-life execution." },
 ];
 
 const Marquee = () => {
@@ -84,13 +84,8 @@ const Index = () => {
             <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-warm text-primary-foreground display text-base font-semibold">R</span>
             <span className="display text-base">Rebeca Batista</span>
           </a>
-          <div className="hidden gap-10 md:flex">
-            {[["About", "#about"], ["Expertise", "#expertise"], ["How I do it", "#how"], ["Contact", "#contact"]].map(([l, h]) => (
-              <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-ink">{l}</a>
-            ))}
-          </div>
           <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
-            Get in touch
+            Contact
           </a>
         </nav>
       </header>
