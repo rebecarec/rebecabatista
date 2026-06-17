@@ -85,9 +85,10 @@ const Index = () => {
             <span className="display text-base">Rebeca Batista</span>
           </a>
           <div className="hidden gap-10 md:flex">
-            {[["About", "#about"], ["Expertise", "#expertise"], ["How I do it", "#how"]].map(([l, h]) => (
-              <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-ink">{l}</a>
-            ))}
+            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">About</a>
+            <a href="#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">Business Expertise</a>
+            <a href="/creative" className="text-sm text-muted-foreground transition-colors hover:text-ink">Creative Portfolio</a>
+            <a href="#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">How I do it</a>
           </div>
           <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
             Contact
@@ -183,7 +184,7 @@ const Index = () => {
         <div className="container pt-24 pb-12">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <span className="eyebrow text-primary">02 — Expertise</span>
+              <span className="eyebrow text-primary">02 — Business Expertise</span>
               <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
                 <span className="text-ink">Data-Informed Strategy</span>{" "}
                 <span className="text-primary">+</span>{" "}
