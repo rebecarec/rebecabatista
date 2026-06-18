@@ -1,4 +1,4 @@
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, Download, Mail, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
 import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
