@@ -2,7 +2,7 @@ import { ArrowLeft, Download, Mail, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
 import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
-import p6 from "@/assets/portfolio/page_6.jpg.asset.json";
+import p6 from "@/assets/portfolio/claro_7.jpg.asset.json";
 import p11 from "@/assets/portfolio/page_11.jpg.asset.json";
 import p16 from "@/assets/portfolio/page_16.jpg.asset.json";
 import p18 from "@/assets/portfolio/page_18.jpg.asset.json";
