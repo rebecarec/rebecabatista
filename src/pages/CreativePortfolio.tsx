@@ -1,4 +1,4 @@
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, Download, Mail, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
 import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
@@ -236,7 +236,7 @@ const CreativePortfolio = () => {
                     src={w.cover}
                     alt={`${w.client} — ${w.title}`}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                   />
                 </div>
               </div>
@@ -298,13 +298,52 @@ const CreativePortfolio = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-ink text-background">
-        <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-background/50 md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} Rebeca Batista — all rights reserved.</span>
-          <Link to="/" className="hover:text-background">Back to main site</Link>
+      {/* Contact */}
+      <section id="contact" className="bg-ink text-background">
+        <div className="container grid gap-16 py-20 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <span className="eyebrow text-primary-glow">Contact</span>
+            <h2 className="display mt-6 text-balance text-5xl md:text-7xl">
+              Let's build something <em className="italic text-primary-glow">that lasts</em>.
+            </h2>
+          </div>
+          <div className="flex items-end lg:col-span-4">
+            <div className="flex gap-3">
+              <a
+                href="mailto:rebeca.ocb@gmail.com"
+                aria-label="Email Rebeca"
+                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rebecarec/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://github.com/rebecarec"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
-      </footer>
+        <div className="border-t border-background/10">
+          <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-background/50 md:flex-row md:items-center">
+            <span>© {new Date().getFullYear()} Rebeca Batista</span>
+            <span>Business Strategist</span>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
