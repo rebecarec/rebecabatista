@@ -231,7 +231,7 @@ const CreativePortfolio = () => {
               }`}
             >
               <div className="lg:col-span-7">
-                <div className="overflow-hidden rounded-sm bg-paper shadow-soft">
+                <div className="overflow-hidden rounded-sm bg-paper shadow-soft aspect-video">
                   <img
                     src={w.cover}
                     alt={`${w.client} — ${w.title}`}
