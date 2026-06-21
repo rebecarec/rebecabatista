@@ -119,8 +119,8 @@ const works: Work[] = [
     cover: p43.url,
     tag: "Category Management",
     desc: "A dedicated Tramontina aisle for Via Varejo: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
-  },
-}];
+  }
+];
 
 const CreativePortfolio = () => {
   return (
