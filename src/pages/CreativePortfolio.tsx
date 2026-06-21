@@ -13,10 +13,6 @@ import p34 from "@/assets/portfolio/page_34.jpg.asset.json";
 import p37 from "@/assets/portfolio/page_37.jpg.asset.json";
 import p40 from "@/assets/portfolio/page_40.jpg.asset.json";
 import p43 from "@/assets/portfolio/page_43.jpg.asset.json";
-import p45 from "@/assets/portfolio/page_45.jpg.asset.json";
-import p47 from "@/assets/portfolio/page_47.jpg.asset.json";
-import p48 from "@/assets/portfolio/page_48.jpg.asset.json";
-import p49 from "@/assets/portfolio/page_49.jpg.asset.json";
 
 type Work = {
   n: string;
@@ -123,39 +119,7 @@ const works: Work[] = [
     cover: p43.url,
     tag: "Category Management",
     desc: "A dedicated Tramontina aisle for Via Varejo: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
-  },
-  {
-    n: "13",
-    client: "Chocolate Category",
-    title: "Storytelling Aisle",
-    cover: p45.url,
-    tag: "Storytelling",
-    desc: "An aisle that tells the story behind each chocolate — origin, cacao percentage and flavour notes — helping the consumer differentiate 55%, 65%, 70% and 85% cacao at a glance.",
-  },
-  {
-    n: "14",
-    client: "Rastrecall",
-    title: "Yell Kiosk",
-    cover: p47.url,
-    tag: "Service Kiosk",
-    desc: "A free-standing service kiosk — \"carregue aqui o seu smartphone\" — that makes the most of available wall space while creating a useful, brandable moment for the user.",
-  },
-  {
-    n: "15",
-    client: "Public Health",
-    title: "Mental Health Awareness Graphics",
-    cover: p48.url,
-    tag: "Graphic System",
-    desc: "A graphic system supporting mental-health awareness — illustrations, iconography and editorial layouts designed to make a difficult conversation feel approachable.",
-  },
-  {
-    n: "16",
-    client: "Citrino Bar",
-    title: "Promotion Graphics",
-    cover: p49.url,
-    tag: "Hospitality · Promo",
-    desc: "Promotion graphics for Citrino Bar: menus, signage and limited-time offer art built to feel native to the venue while still standing out from the regular décor.",
-  },
+  }
 ];
 
 const CreativePortfolio = () => {
@@ -260,43 +224,6 @@ const CreativePortfolio = () => {
         </div>
       </section>
 
-      {/* Full PDF embed */}
-      <section className="border-t border-border/60 bg-paper">
-        <div className="container py-20">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <span className="eyebrow text-primary">The full deck</span>
-              <h2 className="display mt-4 text-4xl text-ink md:text-5xl">
-                Read the complete <em className="italic text-primary">2025 portfolio</em>.
-              </h2>
-            </div>
-            <div className="lg:col-span-4 lg:text-right">
-              <a
-                href={pdfAsset.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background"
-              >
-                <Download className="h-4 w-4" />
-                Open in new tab
-              </a>
-            </div>
-          </div>
-          <div className="mt-10 overflow-hidden rounded-sm border border-border bg-background shadow-soft">
-            <object
-              data={pdfAsset.url}
-              type="application/pdf"
-              className="h-[80vh] w-full"
-              aria-label="Rebeca Batista — Creative Portfolio 2025 (PDF)"
-            >
-              <div className="p-10 text-center text-muted-foreground">
-                Your browser can't display the embedded PDF.{" "}
-                <a href={pdfAsset.url} className="underline">Download it here</a>.
-              </div>
-            </object>
-          </div>
-        </div>
-      </section>
 
       {/* Contact */}
       <section id="contact" className="bg-ink text-background">
