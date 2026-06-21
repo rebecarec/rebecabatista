@@ -13,10 +13,6 @@ import p34 from "@/assets/portfolio/page_34.jpg.asset.json";
 import p37 from "@/assets/portfolio/page_37.jpg.asset.json";
 import p40 from "@/assets/portfolio/page_40.jpg.asset.json";
 import p43 from "@/assets/portfolio/page_43.jpg.asset.json";
-import p45 from "@/assets/portfolio/page_45.jpg.asset.json";
-import p47 from "@/assets/portfolio/page_47.jpg.asset.json";
-import p48 from "@/assets/portfolio/page_48.jpg.asset.json";
-import p49 from "@/assets/portfolio/page_49.jpg.asset.json";
 
 type Work = {
   n: string;
