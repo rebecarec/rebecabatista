@@ -158,27 +158,15 @@ const CreativePortfolio = () => {
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <span className="h-px w-10 bg-ink/30" />
-                <span className="eyebrow text-ink">Portfolio · 3D &amp; Graphics · 2025</span>
+                <span className="eyebrow text-ink">3D Modeling, Graphics and POS Strategy · 2014 - 2021</span>
               </div>
               <h1 className="display mt-6 text-balance text-[clamp(2.75rem,7vw,6rem)] font-light text-ink">
                 Creative <em className="font-normal italic text-primary">Portfolio</em>
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
-                A decade of retail design, point-of-sale architecture and brand
-                experiences — built for global consumer brands across Latin America,
-                the U.S. and Europe.
-              </p>
-            </div>
-            <div className="lg:col-span-4">
-              <a
-                href={pdfAsset.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-all hover:bg-primary"
-              >
-                <Download className="h-4 w-4" />
-                Download full PDF portfolio
-              </a>
+              <div className="mt-6 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
+                <p>A history of +7 years spent on retail design and manufacturing couldn't be erased by business strategy, right?</p>
+                <p>In this area, I share a little bit about my not-so-far past and the interesting details of each project that built my industry knowledge.</p>
+              </div>
             </div>
           </div>
         </div>
