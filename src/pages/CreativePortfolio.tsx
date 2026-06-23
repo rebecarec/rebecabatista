@@ -124,7 +124,7 @@ const works: Work[] = [
 
 const CreativePortfolio = () => {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="dark-portfolio min-h-screen bg-background text-foreground">
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <nav className="container flex h-14 items-center justify-between">
