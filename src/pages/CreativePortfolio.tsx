@@ -212,6 +212,43 @@ const CreativePortfolio = () => {
         </div>
       </section>
 
+      {/* PDF Download */}
+      <section className="border-t border-border/60 py-16">
+        <div className="container flex flex-col items-center justify-center gap-6 text-center">
+          <h3 className="display text-2xl text-ink md:text-3xl">
+            Want to see more?
+          </h3>
+          <p className="max-w-md text-muted-foreground">
+            Download the full portfolio PDF for a complete overview of all projects.
+          </p>
+          <a
+            href={pdfAsset.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-all hover:bg-primary"
+          </parameter>
+<parameter name="new_content">      </section>
+
+      {/* PDF Download */}
+      <section className="border-t border-border/60 py-16">
+        <div className="container flex flex-col items-center justify-center gap-6 text-center">
+          <h3 className="display text-2xl text-ink md:text-3xl">
+            Want to see more?
+          </h3>
+          <p className="max-w-md text-muted-foreground">
+            Download the full portfolio PDF for a complete overview of all projects.
+          </p>
+          <a
+            href={pdfAsset.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-all hover:bg-primary"
+          >
+            <Download className="h-4 w-4" />
+            Download full PDF portfolio
+          </a>
+        </div>
+      </section>
 
       {/* Contact */}
       <section id="contact" className="bg-ink text-background">
