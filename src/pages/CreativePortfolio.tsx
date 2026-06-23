@@ -6,12 +6,12 @@ import p6 from "@/assets/portfolio/claro_7.jpg.asset.json";
 import p11 from "@/assets/portfolio/gci_shots-10.jpg.asset.json";
 import p16 from "@/assets/portfolio/page_16.jpg.asset.json";
 import p18 from "@/assets/portfolio/page_18.jpg.asset.json";
-import p21 from "@/assets/portfolio/page_21.jpg.asset.json";
+import p21 from "@/assets/portfolio/pernod-9.jpg.asset.json";
 import p25 from "@/assets/portfolio/page_25.jpg.asset.json";
 import p32 from "@/assets/portfolio/risque-03.jpg.asset.json";
-import p34 from "@/assets/portfolio/page_34.jpg.asset.json";
+import p34 from "@/assets/portfolio/opi-5.jpg.asset.json";
 import p37 from "@/assets/portfolio/page_37.jpg.asset.json";
-import p40 from "@/assets/portfolio/page_40.jpg.asset.json";
+import p40 from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
 import p43 from "@/assets/portfolio/page_43.jpg.asset.json";
 
 type Work = {
