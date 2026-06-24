@@ -46,11 +46,11 @@ const works: Work[] = [
   },
   {
     n: "03",
-    client: "Pernod Ricard",
-    title: "Interactive Totem",
-    covers: [pernod6.url, pernod7.url],
-    tag: "Retail · Interaction",
-    desc: "A point of interaction between brand and consumer. When a bottle is removed the consumer is directed to personalized content — engaging shoppers, providing analytics about the display (pick-ups, hottest zones) and supporting product launches.",
+    client: "REVLON",
+    title: "Dufry Aisle and Department Stores",
+    covers: [revlon.url, revlon3.url],
+    tag: "BEAUTY ZONE",
+    desc: "An aisle concept for Dufry travel retail and department stores, hosting Revlon with a coherent visual language that lets the brand keep its own personality across formats.",
   },
   {
     n: "04",
@@ -110,11 +110,11 @@ const works: Work[] = [
   },
   {
     n: "11",
-    client: "REVLON",
-    title: "Dufry Aisle and Department Stores",
-    covers: [revlon.url, revlon3.url],
-    tag: "BEAUTY ZONE",
-    desc: "An aisle concept for Dufry travel retail and department stores, hosting Revlon with a coherent visual language that lets the brand keep its own personality across formats.",
+    client: "Pernod Ricard",
+    title: "Interactive Totem",
+    covers: [pernod6.url, pernod7.url],
+    tag: "Retail · Interaction",
+    desc: "A point of interaction between brand and consumer. When a bottle is removed the consumer is directed to personalized content — engaging shoppers, providing analytics about the display (pick-ups, hottest zones) and supporting product launches.",
   },
   {
     n: "12",
@@ -187,17 +187,40 @@ const CreativePortfolio = () => {
               }`}
             >
               <div className="lg:col-span-7">
-                <div className={`grid gap-4 ${w.covers.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                  {w.covers.map((src, idx) => (
+                {w.covers.length === 3 ? (
+                  <div className="grid grid-cols-3 gap-4">
                     <img
-                      key={idx}
-                      src={src}
+                      src={w.covers[0]}
                       alt={`${w.client} — ${w.title}`}
                       loading="lazy"
-                      className="h-auto w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
+                      className="col-span-2 row-span-2 h-full max-h-[60vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
-                  ))}
-                </div>
+                    <img
+                      src={w.covers[1]}
+                      alt={`${w.client} — ${w.title}`}
+                      loading="lazy"
+                      className="h-full max-h-[29vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
+                    />
+                    <img
+                      src={w.covers[2]}
+                      alt={`${w.client} — ${w.title}`}
+                      loading="lazy"
+                      className="h-full max-h-[29vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
+                    />
+                  </div>
+                ) : (
+                  <div className={`grid gap-4 ${w.covers.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                    {w.covers.map((src, idx) => (
+                      <img
+                        key={idx}
+                        src={src}
+                        alt={`${w.client} — ${w.title}`}
+                        loading="lazy"
+                        className="h-auto max-h-[60vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="lg:col-span-5">
                 <div className="flex items-baseline gap-4">
