@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
 import claro from "@/assets/portfolio/claro_7.jpg.asset.json";
 import gci from "@/assets/portfolio/gci_shots-10.jpg.asset.json";
-import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
-import qdb6 from "@/assets/portfolio/qdb-6.jpg.asset.json";
+import qdb1 from "@/assets/portfolio/qdb-1.jpg.asset.json";
 import pontoFrio2 from "@/assets/portfolio/ponto-frio-2.jpg.asset.json";
 import pernod6 from "@/assets/portfolio/pernod-6.jpg.asset.json";
 import pernod7 from "@/assets/portfolio/pernod-7.jpg.asset.json";
+import pernod9v2 from "@/assets/portfolio/pernod-9-v2.jpg.asset.json";
 import pernod1 from "@/assets/portfolio/pernod-1.jpg.asset.json";
 import risque from "@/assets/portfolio/risque-03.jpg.asset.json";
 import opi5 from "@/assets/portfolio/opi-5.jpg.asset.json";
 import opi9 from "@/assets/portfolio/opi-9.jpg.asset.json";
+import opi2 from "@/assets/portfolio/opi-2.jpg.asset.json";
 import colgate1 from "@/assets/portfolio/colgate-1.jpg.asset.json";
 import revlon from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
+import revlon3 from "@/assets/portfolio/revlon-3.jpg.asset.json";
 import tramontina from "@/assets/portfolio/tramontina-1.jpg.asset.json";
 
 type Work = {
