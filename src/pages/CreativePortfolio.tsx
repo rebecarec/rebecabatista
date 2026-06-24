@@ -1,66 +1,68 @@
 import { ArrowLeft, Download, Mail, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
+import claro from "@/assets/portfolio/claro_7.jpg.asset.json";
+import gci from "@/assets/portfolio/gci_shots-10.jpg.asset.json";
 import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
-import p6 from "@/assets/portfolio/claro_7.jpg.asset.json";
-import p11 from "@/assets/portfolio/gci_shots-10.jpg.asset.json";
-import p16 from "@/assets/portfolio/page_16.jpg.asset.json";
-import p18 from "@/assets/portfolio/page_18.jpg.asset.json";
-import p21 from "@/assets/portfolio/pernod-9.jpg.asset.json";
-import p25 from "@/assets/portfolio/page_25.jpg.asset.json";
-import p32 from "@/assets/portfolio/risque-03.jpg.asset.json";
-import p34 from "@/assets/portfolio/opi-5.jpg.asset.json";
-import p37 from "@/assets/portfolio/page_37.jpg.asset.json";
-import p40 from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
-import p43 from "@/assets/portfolio/page_43.jpg.asset.json";
+import qdb6 from "@/assets/portfolio/qdb-6.jpg.asset.json";
+import pontoFrio2 from "@/assets/portfolio/ponto-frio-2.jpg.asset.json";
+import pernod6 from "@/assets/portfolio/pernod-6.jpg.asset.json";
+import pernod7 from "@/assets/portfolio/pernod-7.jpg.asset.json";
+import pernod1 from "@/assets/portfolio/pernod-1.jpg.asset.json";
+import risque from "@/assets/portfolio/risque-03.jpg.asset.json";
+import opi5 from "@/assets/portfolio/opi-5.jpg.asset.json";
+import opi9 from "@/assets/portfolio/opi-9.jpg.asset.json";
+import colgate1 from "@/assets/portfolio/colgate-1.jpg.asset.json";
+import revlon from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
+import tramontina from "@/assets/portfolio/tramontina-1.jpg.asset.json";
 
 type Work = {
   n: string;
   client: string;
   title: string;
   desc: string;
-  cover: string;
+  covers: string[];
   tag?: string;
 };
 
 const works: Work[] = [
   {
     n: "01",
-    client: "Pernod Ricard",
-    title: "Interactive Totem",
-    cover: p3.url,
-    tag: "Retail · Interaction",
-    desc: "A point of interaction between brand and consumer. When a bottle is removed the consumer is directed to personalized content — engaging shoppers, providing analytics about the display (pick-ups, hottest zones) and supporting product launches.",
-  },
-  {
-    n: "02",
     client: "Claro",
     title: "Morumbi Mall Store",
-    cover: p6.url,
+    covers: [claro.url],
     tag: "Retail Concept · 2016",
     desc: "A new retail concept launched at the Morumbi Shopping store. Tall counters and mobile fixtures support quick interactions while fixed table areas serve longer visits. After a successful pilot, the concept rolled out across Latin America.",
   },
   {
-    n: "03",
+    n: "02",
     client: "GCI — Alaska",
     title: "Store Redesign Project",
-    cover: p11.url,
+    covers: [gci.url],
     tag: "International · Work Exchange",
     desc: "Developed during a work exchange in the United States. The concept reflects Alaska's unique culture and works within local sourcing constraints — many store locations are remote, so the design relies primarily on locally available materials.",
+  },
+  {
+    n: "03",
+    client: "Pernod Ricard",
+    title: "Interactive Totem",
+    covers: [pernod6.url, pernod7.url],
+    tag: "Retail · Interaction",
+    desc: "A point of interaction between brand and consumer. When a bottle is removed the consumer is directed to personalized content — engaging shoppers, providing analytics about the display (pick-ups, hottest zones) and supporting product launches.",
   },
   {
     n: "04",
     client: "Quem Disse, Berenice?",
     title: "Pharma Wall Fixture",
-    cover: p16.url,
+    covers: [qdb6.url],
     tag: "Award-winning",
     desc: "The brand's first wall-mounted display designed specifically for the pharmacy channel. Modular niches and a gravity-feed tray system. Winner of POPAI 2016 (best permanent display, pharmacy/makeup) and EuroShop 2017 (best semi-permanent furniture, beauty & cosmetics).",
   },
   {
     n: "05",
-    client: "Via Varejo",
+    client: "Ponto Frio",
     title: "Game Zone — Ponto Frio",
-    cover: p18.url,
+    covers: [pontoFrio2.url],
     tag: "Category Experience",
     desc: "An immersive gaming zone for Ponto Frio stores. All counters are enclosed and any products outside display cases are kept secure — balancing playful experience with loss-prevention requirements.",
   },
@@ -68,7 +70,7 @@ const works: Work[] = [
     n: "06",
     client: "Pernod Ricard",
     title: "Shelf Adaptive Display",
-    cover: p21.url,
+    covers: [p3.url],
     tag: "Modular Display",
     desc: "An adaptive shelf system designed to flex across SKUs and store formats, keeping the Absolut visual identity consistent while making fast in-store updates possible.",
   },
@@ -76,7 +78,7 @@ const works: Work[] = [
     n: "07",
     client: "Pernod Ricard",
     title: "Interactive Zones — #InstaBar",
-    cover: p25.url,
+    covers: [pernod1.url],
     tag: "Activation · Social",
     desc: "On-premise activation zones with a social mechanic: photograph a code or scan the QR to redeem a prize. Built to drive engagement around the #Absolut and #SuccessIsABlend campaigns.",
   },
@@ -84,7 +86,7 @@ const works: Work[] = [
     n: "08",
     client: "Risqué",
     title: "Nail Experience",
-    cover: p32.url,
+    covers: [risque.url],
     tag: "Beauty · Experiential",
     desc: "An immersive in-store nail experience for Risqué, designed to invite consumers to discover the range and test products in a guided sensorial environment.",
   },
@@ -92,7 +94,7 @@ const works: Work[] = [
     n: "09",
     client: "OPI",
     title: "POSM Fixtures",
-    cover: p34.url,
+    covers: [opi5.url, opi9.url],
     tag: "Point-of-Sale",
     desc: "A family of point-of-sale fixtures for OPI, built to maintain a premium professional-salon feel inside the mass retail environment.",
   },
@@ -100,25 +102,25 @@ const works: Work[] = [
     n: "10",
     client: "Colgate",
     title: "Wholesale Fixture",
-    cover: p37.url,
+    covers: [colgate1.url],
     tag: "Wholesale Channel",
     desc: "A fixture system built for the wholesale channel — high product density, fast restock, and a clear brand block visible across large warehouse aisles.",
   },
   {
     n: "11",
-    client: "Revlon & Lee Stafford",
-    title: "Dufry Aisle",
-    cover: p40.url,
-    tag: "Travel Retail",
-    desc: "An aisle concept for Dufry travel retail, hosting Revlon and Lee Stafford side by side with a coherent visual language that still lets each brand keep its own personality.",
+    client: "REVLON",
+    title: "Dufry Aisle and Department Stores",
+    covers: [revlon.url],
+    tag: "BEAUTY ZONE",
+    desc: "An aisle concept for Dufry travel retail and department stores, hosting Revlon with a coherent visual language that lets the brand keep its own personality across formats.",
   },
   {
     n: "12",
-    client: "Via Varejo",
+    client: "Tramontina",
     title: "Tramontina Aisle",
-    cover: p43.url,
+    covers: [tramontina.url],
     tag: "Category Management",
-    desc: "A dedicated Tramontina aisle for Via Varejo: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
+    desc: "A dedicated Tramontina aisle: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
   }
 ];
 
@@ -147,14 +149,14 @@ const CreativePortfolio = () => {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="pointer-events-none absolute inset-0 grain opacity-60" />
-        <div className="container relative pb-16 pt-12 md:pt-16">
+        <div className="container relative pb-16 pt-6 md:pt-8">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-ink"
           >
             <ArrowLeft className="h-4 w-4" /> Back to main site
           </Link>
-          <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-end">
+          <div className="mt-3 grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <span className="h-px w-10 bg-ink/30" />
@@ -183,13 +185,16 @@ const CreativePortfolio = () => {
               }`}
             >
               <div className="lg:col-span-7">
-                <div className="overflow-hidden rounded-sm bg-paper shadow-soft aspect-video">
-                  <img
-                    src={w.cover}
-                    alt={`${w.client} — ${w.title}`}
-                    loading="lazy"
-                    className="h-full w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
-                  />
+                <div className={`grid gap-4 ${w.covers.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                  {w.covers.map((src, idx) => (
+                    <img
+                      key={idx}
+                      src={src}
+                      alt={`${w.client} — ${w.title}`}
+                      loading="lazy"
+                      className="h-auto w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
+                    />
+                  ))}
                 </div>
               </div>
               <div className="lg:col-span-5">
