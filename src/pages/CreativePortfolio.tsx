@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import pdfAsset from "@/assets/portfolio-pdf.asset.json";
 import claro from "@/assets/portfolio/claro_7.jpg.asset.json";
 import gci from "@/assets/portfolio/gci_shots-10.jpg.asset.json";
-import p3 from "@/assets/portfolio/page_3.jpg.asset.json";
-import qdb6 from "@/assets/portfolio/qdb-6.jpg.asset.json";
+import qdb1 from "@/assets/portfolio/qdb-1.jpg.asset.json";
 import pontoFrio2 from "@/assets/portfolio/ponto-frio-2.jpg.asset.json";
 import pernod6 from "@/assets/portfolio/pernod-6.jpg.asset.json";
 import pernod7 from "@/assets/portfolio/pernod-7.jpg.asset.json";
+import pernod9v2 from "@/assets/portfolio/pernod-9-v2.jpg.asset.json";
 import pernod1 from "@/assets/portfolio/pernod-1.jpg.asset.json";
 import risque from "@/assets/portfolio/risque-03.jpg.asset.json";
 import opi5 from "@/assets/portfolio/opi-5.jpg.asset.json";
 import opi9 from "@/assets/portfolio/opi-9.jpg.asset.json";
+import opi2 from "@/assets/portfolio/opi-2.jpg.asset.json";
 import colgate1 from "@/assets/portfolio/colgate-1.jpg.asset.json";
 import revlon from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
+import revlon3 from "@/assets/portfolio/revlon-3.jpg.asset.json";
 import tramontina from "@/assets/portfolio/tramontina-1.jpg.asset.json";
 
 type Work = {
@@ -54,7 +56,7 @@ const works: Work[] = [
     n: "04",
     client: "Quem Disse, Berenice?",
     title: "Pharma Wall Fixture",
-    covers: [qdb6.url],
+    covers: [qdb1.url],
     tag: "Award-winning",
     desc: "The brand's first wall-mounted display designed specifically for the pharmacy channel. Modular niches and a gravity-feed tray system. Winner of POPAI 2016 (best permanent display, pharmacy/makeup) and EuroShop 2017 (best semi-permanent furniture, beauty & cosmetics).",
   },
@@ -70,7 +72,7 @@ const works: Work[] = [
     n: "06",
     client: "Pernod Ricard",
     title: "Shelf Adaptive Display",
-    covers: [p3.url],
+    covers: [pernod9v2.url],
     tag: "Modular Display",
     desc: "An adaptive shelf system designed to flex across SKUs and store formats, keeping the Absolut visual identity consistent while making fast in-store updates possible.",
   },
@@ -94,7 +96,7 @@ const works: Work[] = [
     n: "09",
     client: "OPI",
     title: "POSM Fixtures",
-    covers: [opi5.url, opi9.url],
+    covers: [opi5.url, opi9.url, opi2.url],
     tag: "Point-of-Sale",
     desc: "A family of point-of-sale fixtures for OPI, built to maintain a premium professional-salon feel inside the mass retail environment.",
   },
@@ -110,7 +112,7 @@ const works: Work[] = [
     n: "11",
     client: "REVLON",
     title: "Dufry Aisle and Department Stores",
-    covers: [revlon.url],
+    covers: [revlon.url, revlon3.url],
     tag: "BEAUTY ZONE",
     desc: "An aisle concept for Dufry travel retail and department stores, hosting Revlon with a coherent visual language that lets the brand keep its own personality across formats.",
   },
@@ -175,12 +177,12 @@ const CreativePortfolio = () => {
       </section>
 
       {/* Works */}
-      <section className="container py-20">
-        <div className="space-y-24">
+      <section className="container">
+        <div className="divide-y divide-orange-500/60">
           {works.map((w, i) => (
             <article
               key={w.n}
-              className={`grid gap-10 lg:grid-cols-12 lg:items-center ${
+              className={`grid min-h-[80vh] gap-10 py-16 lg:grid-cols-12 lg:items-center ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
@@ -216,6 +218,7 @@ const CreativePortfolio = () => {
           ))}
         </div>
       </section>
+
 
       {/* PDF Download */}
       <section className="border-t border-border/60 py-16">
