@@ -5,6 +5,8 @@ import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
 import project4 from "@/assets/project-4.png";
 import mtbankHeader from "@/assets/mtbank-presentation.jpeg";
+import { useLang } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const marqueeWords = [
   "Strategy Development", "Implementation Roadmap", "Forecasting", "Budgeting",
@@ -26,38 +28,6 @@ const partnerships = [
   { src: project4, label: "OPPO" },
 ];
 
-const projects = [
-  {
-    client: "M&T Bank",
-    title: "Engaging gig workers with M&T Capabilities",
-    desc: "In the U.S., it is projected that by 2028, the population of gig workers will be more than half of the population. On this project, I worked on a proposal to help M&T Bank optimize its services to this population with such specific needs.",
-  },
-  {
-    client: "Gosta Labs",
-    title: "North America Expansion, possible pathways",
-    desc: "A growing healthcare AI company with a footprint in Europe, Asia, and Oceania wanted to understand more about the North America scenario. On this project, I worked on analyzing regulation, financial viability, GTM strategy, and market access paths.",
-  },
-  {
-    client: "Hult Cup",
-    title: "How to engage multiple campus in the summer",
-    desc: "With campuses in Boston, London, Dubai, New York, and San Francisco, the challenge here was to develop a project that would keep students engaged over summer, engage the community with the World Cup, and promote a friendly competition between campuses.",
-  },
-  {
-    client: "Planet Fitness",
-    title: "ESG assessment and improvement plan",
-    desc: "In a growing services industry, it is important to know how to provide real value when it comes to ESG improvements. The challenge here was to implement ESG initiatives with real-life impacts, as frictionless to the franchisees as possible.",
-  },
-];
-
-const howIDoIt = [
-  { n: "01", title: "Listen", desc: "I like to start gathering all information possible from key stakeholders, data, and industry scenarios. Interviewing relevant specialists and clarifying assumptions is also very relevant for me, since I know research can only tell us so much." },
-  { n: "02", title: "Diagnose", desc: "For each possible issue, a different framework might be adequate to diagnose the issue, the traditional ones like McKinsey or BCG matrices can give insight, and the new ones like Platform Canvas can give actionable directions." },
-  { n: "03", title: "Model", desc: "Building the data models, forecasts, and scenarios, can turn assumptions into testable strategies. Here is where we connect the problem with possible solutions." },
-  { n: "04", title: "Validate Solutions", desc: "Connecting problems and solutions is not enough, I believe it is also relevant to test these models, share preliminary direction with the client, and validate feasibility with real-world data or prototyping." },
-  { n: "05", title: "Recommend", desc: "After the most impactful plan is validated, it is important to translate complex findings into a clear, sequenced playbook that the client can understand and execute." },
-  { n: "06", title: "Operate", desc: "With the plan developed, it is extremely important to engage key stakeholders, delegate activities, and define KPIs to be evaluated. The success depends on the strategy leaving the paper and turning into real-life execution." },
-];
-
 const Marquee = () => {
   const items = [...marqueeWords, ...marqueeWords];
   return (
@@ -75,6 +45,24 @@ const Marquee = () => {
 };
 
 const Index = () => {
+  const { t } = useLang();
+
+  const projects = [
+    { client: "M&T Bank", title: t("proj_mt_title"), desc: t("proj_mt_desc") },
+    { client: "Gosta Labs", title: t("proj_gosta_title"), desc: t("proj_gosta_desc") },
+    { client: "Hult Cup", title: t("proj_hult_title"), desc: t("proj_hult_desc") },
+    { client: "Planet Fitness", title: t("proj_pf_title"), desc: t("proj_pf_desc") },
+  ];
+
+  const howIDoIt = [
+    { n: "01", title: t("step_listen"), desc: t("step_listen_d") },
+    { n: "02", title: t("step_diag"), desc: t("step_diag_d") },
+    { n: "03", title: t("step_model"), desc: t("step_model_d") },
+    { n: "04", title: t("step_val"), desc: t("step_val_d") },
+    { n: "05", title: t("step_rec"), desc: t("step_rec_d") },
+    { n: "06", title: t("step_op"), desc: t("step_op_d") },
+  ];
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Nav */}
@@ -85,14 +73,17 @@ const Index = () => {
             <span className="display text-base">Rebeca Batista</span>
           </a>
           <div className="hidden gap-10 md:flex">
-            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">About</a>
-            <a href="#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">Business Expertise</a>
-            <a href="/creative" className="text-sm text-muted-foreground transition-colors hover:text-ink">Creative Portfolio</a>
-            <a href="#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">How I do it</a>
+            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_about")}</a>
+            <a href="#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_expertise")}</a>
+            <a href="/creative" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_creative")}</a>
+            <a href="#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_how")}</a>
           </div>
-          <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
-            Contact
-          </a>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher variant="nav" />
+            <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
+              {t("nav_contact")}
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -103,17 +94,14 @@ const Index = () => {
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3 text-muted-foreground">
               <span className="h-px w-10 bg-ink/30" />
-              <span className="eyebrow text-ink">Business Strategist</span>
+              <span className="eyebrow text-ink">{t("hero_role")}</span>
             </div>
             <h1 className="display mt-6 text-balance text-[clamp(3rem,8vw,7.5rem)] font-light text-ink">
               Rebeca <em className="font-normal italic text-primary">Batista</em>
             </h1>
             <div className="mt-8 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
-              <p>Over a decade of global experience in consumer goods and retail strategy.</p>
-              <p>
-                I bridge the gap between brand long term goals and rigorous analytical strategy
-                to drive scalable results and lasting impact.
-              </p>
+              <p>{t("hero_p1")}</p>
+              <p>{t("hero_p2")}</p>
             </div>
           </div>
 
@@ -121,7 +109,7 @@ const Index = () => {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-sm shadow-soft">
               <img src={portrait} alt="Portrait of Rebeca Batista" className="h-full w-full object-cover" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-4">
-                <span className="eyebrow text-background">Strategy · Analytics · Operations</span>
+                <span className="eyebrow text-background">{t("hero_caption")}</span>
               </div>
             </div>
           </div>
@@ -134,30 +122,20 @@ const Index = () => {
       <section id="about" className="container py-24">
         <div className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <span className="eyebrow text-primary">01 — About</span>
+            <span className="eyebrow text-primary">{t("about_eyebrow")}</span>
             <h2 className="display mt-6 text-5xl text-ink md:text-6xl">
-              Strategy, made <em className="italic text-primary">measurable</em>.
+              {t("about_title_1")} <em className="italic text-primary">{t("about_title_2")}</em>.
             </h2>
           </div>
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-            <p>
-              With over a decade of experience developing retail strategy and trade marketing for global
-              consumer brands, I bridge the gap between high-level business goals and actionable data
-              insights. Currently an MBA candidate specializing in Data Analytics, I focus on transforming
-              complex datasets into clear insights that power growth.
-            </p>
-            <p>
-              My professional background is rooted in the fast-moving consumer goods (FMCG) and technology
-              sectors, where I have led cross-functional teams to optimize market presence and consumer
-              engagement. Today, I combine that industry knowledge with advanced proficiency in Business
-              Intelligence tools — building robust strategies, data models, and operations that generate profit.
-            </p>
+            <p>{t("about_p1")}</p>
+            <p>{t("about_p2")}</p>
           </div>
         </div>
 
         {/* Recent projects gallery */}
         <div className="mt-16">
-          <span className="eyebrow text-muted-foreground">Recent Projects</span>
+          <span className="eyebrow text-muted-foreground">{t("recent_projects")}</span>
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
             {partnerships.map((p, i) => (
               <div
@@ -184,11 +162,11 @@ const Index = () => {
         <div className="container pt-24 pb-12">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <span className="eyebrow text-primary">02 — Business Expertise</span>
+              <span className="eyebrow text-primary">{t("expertise_eyebrow")}</span>
               <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
-                <span className="text-ink">Data-Informed Strategy</span>{" "}
+                <span className="text-ink">{t("expertise_title_1")}</span>{" "}
                 <span className="text-primary">+</span>{" "}
-                <em className="italic text-primary/90">Results-Driven Leadership</em>
+                <em className="italic text-primary/90">{t("expertise_title_2")}</em>
               </h2>
             </div>
             <div className="lg:col-span-5">
@@ -218,7 +196,7 @@ const Index = () => {
               className="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-background transition-all hover:bg-primary"
             >
               <Linkedin className="h-4 w-4" />
-              Contact on LinkedIn and see more
+              {t("see_more_linkedin")}
             </a>
           </div>
         </div>
@@ -226,9 +204,9 @@ const Index = () => {
 
       {/* How I do it */}
       <section id="how" className="container py-20">
-        <span className="eyebrow text-primary">03 — How I do it</span>
+        <span className="eyebrow text-primary">{t("how_eyebrow")}</span>
         <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
-          From <em className="italic text-primary">Consumer Insights</em> to Commercial Growth.
+          {t("how_title_1")} <em className="italic text-primary">{t("how_title_2")}</em> {t("how_title_3")}
         </h2>
         <ul className="mt-12 divide-y divide-border border-y border-border">
           {howIDoIt.map((p) => (
@@ -245,9 +223,12 @@ const Index = () => {
       <section id="contact" className="bg-ink text-background">
         <div className="container grid gap-16 py-20 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <span className="eyebrow text-primary-glow">04 — Contact</span>
+            <div className="flex items-start justify-between gap-6">
+              <span className="eyebrow text-primary-glow">{t("contact_eyebrow")}</span>
+              <LanguageSwitcher variant="contact" />
+            </div>
             <h2 className="display mt-6 text-balance text-5xl md:text-7xl">
-              Let's build something <em className="italic text-primary-glow">that lasts</em>.
+              {t("contact_title_1")} <em className="italic text-primary-glow">{t("contact_title_2")}</em>.
             </h2>
           </div>
           <div className="flex items-end lg:col-span-4">
@@ -283,7 +264,7 @@ const Index = () => {
         <div className="border-t border-background/10">
           <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-background/50 md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} Rebeca Batista</span>
-            <span>Business Strategist</span>
+            <span>{t("footer_role")}</span>
           </div>
         </div>
       </section>
