@@ -20,15 +20,6 @@ import tramontina from "@/assets/portfolio/tramontina-1.jpg.asset.json";
 import { useLang, translations } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-type Work = {
-  n: string;
-  client: string;
-  title: string;
-  desc: string;
-  covers: string[];
-  tag?: string;
-};
-
 type WorkKey = "w01"|"w02"|"w03"|"w04"|"w05"|"w06"|"w07"|"w08"|"w09"|"w10"|"w11"|"w12";
 type Work = { n: string; client: string; k: WorkKey; covers: string[] };
 
