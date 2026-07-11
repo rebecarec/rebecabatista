@@ -113,7 +113,109 @@
   }
   .grain {
     background-image:
+      radial-gradient(hsl(var(--ink) / 0.06) 1px, transparent 1px),
       radial-gradient(hsl(var(--ink) / 0.04) 1px, transparent 1px);
-    background-size: 3px 3px;
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
   }
+  .handwriting { font-family: 'Caveat', cursive; }
+  .typewriter { font-family: 'Special Elite', 'Courier New', monospace; }
 }
+
+/* -------- Mixed-media layer -------------------------------------------- */
+/* Paper texture applied as a fixed background so every section reads as
+   one continuous collaged sheet. */
+body {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(circle at 12% 18%, hsl(var(--primary) / 0.07), transparent 45%),
+    radial-gradient(circle at 88% 82%, hsl(var(--primary) / 0.05), transparent 50%),
+    radial-gradient(circle at 70% 12%, hsl(var(--ink) / 0.04), transparent 40%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.10  0 0 0 0 0.06  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  background-attachment: fixed, fixed, fixed, fixed;
+  background-size: auto, auto, auto, 320px 320px;
+}
+
+.dark-portfolio body,
+main.dark-portfolio {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(circle at 15% 10%, hsl(var(--primary) / 0.12), transparent 45%),
+    radial-gradient(circle at 85% 90%, hsl(var(--primary) / 0.08), transparent 55%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.90  0 0 0 0 0.82  0 0 0 0.14 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-attachment: fixed, fixed, fixed;
+  background-size: auto, auto, 320px 320px;
+}
+
+/* Halftone / newsprint dots as a reusable overlay */
+.halftone {
+  background-image: radial-gradient(hsl(var(--ink) / 0.32) 1px, transparent 1.4px);
+  background-size: 6px 6px;
+}
+
+/* Torn paper edges — attach to a section for a ripped-collage seam */
+.torn-top {
+  -webkit-mask-image: radial-gradient(6px at 6px 100%, transparent 98%, #000 100%) 0 0/14px 14px repeat-x, linear-gradient(#000, #000);
+          mask-image: radial-gradient(6px at 6px 100%, transparent 98%, #000 100%) 0 0/14px 14px repeat-x, linear-gradient(#000, #000);
+  -webkit-mask-composite: source-over;
+          mask-composite: add;
+}
+.torn-bottom {
+  -webkit-mask-image: radial-gradient(6px at 6px 0, transparent 98%, #000 100%) 0 100%/14px 14px repeat-x, linear-gradient(#000, #000);
+          mask-image: radial-gradient(6px at 6px 0, transparent 98%, #000 100%) 0 100%/14px 14px repeat-x, linear-gradient(#000, #000);
+}
+
+/* Washi-tape accent — decorative element positioned by consumer */
+.tape {
+  position: absolute;
+  width: 96px;
+  height: 22px;
+  background: hsl(var(--primary) / 0.55);
+  background-image:
+    repeating-linear-gradient(45deg, hsl(var(--primary) / 0.25) 0 6px, transparent 6px 12px);
+  box-shadow: 0 4px 10px -4px hsl(var(--ink) / 0.35);
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+/* Collage frame — soft paper edge + drop-shadow + subtle rotation */
+.collage-frame {
+  box-shadow:
+    0 1px 0 hsl(var(--ink) / 0.05),
+    0 22px 40px -22px hsl(var(--ink) / 0.45),
+    inset 0 0 0 6px hsl(var(--cream));
+}
+
+/* Ink smudge / stamp accent */
+.ink-smudge::after {
+  content: "";
+  position: absolute;
+  inset: auto -18px -18px auto;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(closest-side, hsl(var(--primary) / 0.35), transparent 70%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Give images inside the main content a subtle paper-collage feel:
+   soft edge, drop-shadow, and gentle desaturation like a printed cutout. */
+main section img {
+  box-shadow:
+    0 1px 0 hsl(var(--ink) / 0.06),
+    0 18px 30px -20px hsl(var(--ink) / 0.5);
+  filter: contrast(1.03) saturate(0.95);
+}
+main.dark-portfolio section img {
+  filter: contrast(1.05) saturate(0.92) brightness(0.98);
+  box-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.05),
+    0 20px 40px -22px #000;
+}
+
+/* Marquee & hero eyebrows get a stamped feel */
+.eyebrow {
+  position: relative;
+}
+
