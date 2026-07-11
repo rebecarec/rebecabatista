@@ -73,20 +73,20 @@ const CreativePortfolio = () => {
             to="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-ink"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to main site
+            <ArrowLeft className="h-4 w-4" /> {t("cp_back")}
           </Link>
           <div className="mt-3 grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <span className="h-px w-10 bg-ink/30" />
-                <span className="eyebrow text-ink">3D Modeling, Graphics and POS Strategy · 2014 - 2021</span>
+                <span className="eyebrow text-ink">{t("cp_eyebrow")}</span>
               </div>
               <h1 className="display mt-6 text-balance text-[clamp(2.75rem,7vw,6rem)] font-light text-ink">
-                Creative <em className="font-normal italic text-primary">Portfolio</em>
+                {t("cp_title_1")} <em className="font-normal italic text-primary">{t("cp_title_2")}</em>
               </h1>
               <div className="mt-6 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
-                <p>A history of +7 years spent on retail design and manufacturing couldn't be erased by business strategy, right?</p>
-                <p>In this area, I share a little bit about my not-so-far past and the interesting details of each project that built my industry knowledge.</p>
+                <p>{t("cp_p1")}</p>
+                <p>{t("cp_p2")}</p>
               </div>
             </div>
           </div>
