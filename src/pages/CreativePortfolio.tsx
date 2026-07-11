@@ -29,106 +29,27 @@ type Work = {
   tag?: string;
 };
 
+type WorkKey = "w01"|"w02"|"w03"|"w04"|"w05"|"w06"|"w07"|"w08"|"w09"|"w10"|"w11"|"w12";
+type Work = { n: string; client: string; k: WorkKey; covers: string[] };
+
 const works: Work[] = [
-  {
-    n: "01",
-    client: "Claro",
-    title: "Morumbi Mall Store",
-    covers: [claro.url],
-    tag: "Retail Concept · 2016",
-    desc: "A new retail concept launched at the Morumbi Shopping store. Tall counters and mobile fixtures support quick interactions while fixed table areas serve longer visits. After a successful pilot, the concept rolled out across Latin America.",
-  },
-  {
-    n: "02",
-    client: "GCI — Alaska",
-    title: "Store Redesign Project",
-    covers: [gci.url],
-    tag: "International · Work Exchange",
-    desc: "Developed during a work exchange in the United States. The concept reflects Alaska's unique culture and works within local sourcing constraints — many store locations are remote, so the design relies primarily on locally available materials.",
-  },
-  {
-    n: "03",
-    client: "REVLON",
-    title: "Dufry Aisle and Department Stores",
-    covers: [revlon.url, revlon3.url],
-    tag: "BEAUTY ZONE",
-    desc: "An aisle concept for Dufry travel retail and department stores, hosting Revlon with a coherent visual language that lets the brand keep its own personality across formats.",
-  },
-  {
-    n: "04",
-    client: "Quem Disse, Berenice?",
-    title: "Pharma Wall Fixture",
-    covers: [qdb1.url],
-    tag: "Award-winning",
-    desc: "The brand's first wall-mounted display designed specifically for the pharmacy channel. Modular niches and a gravity-feed tray system. Winner of POPAI 2016 (best permanent display, pharmacy/makeup) and EuroShop 2017 (best semi-permanent furniture, beauty & cosmetics).",
-  },
-  {
-    n: "05",
-    client: "Ponto Frio",
-    title: "Game Zone — Ponto Frio",
-    covers: [pontoFrio2.url],
-    tag: "Category Experience",
-    desc: "An immersive gaming zone for Ponto Frio stores. All counters are enclosed and any products outside display cases are kept secure — balancing playful experience with loss-prevention requirements.",
-  },
-  {
-    n: "06",
-    client: "Pernod Ricard",
-    title: "Shelf Adaptive Display",
-    covers: [pernod9v2.url],
-    tag: "Modular Display",
-    desc: "An adaptive shelf system designed to flex across SKUs and store formats, keeping the Absolut visual identity consistent while making fast in-store updates possible.",
-  },
-  {
-    n: "07",
-    client: "Pernod Ricard",
-    title: "Interactive Zones — #InstaBar",
-    covers: [pernod1.url],
-    tag: "Activation · Social",
-    desc: "On-premise activation zones with a social mechanic: photograph a code or scan the QR to redeem a prize. Built to drive engagement around the #Absolut and #SuccessIsABlend campaigns.",
-  },
-  {
-    n: "08",
-    client: "Risqué",
-    title: "Nail Experience",
-    covers: [risque.url],
-    tag: "Beauty · Experiential",
-    desc: "An immersive in-store nail experience for Risqué, designed to invite consumers to discover the range and test products in a guided sensorial environment.",
-  },
-  {
-    n: "09",
-    client: "OPI",
-    title: "POSM Fixtures",
-    covers: [opi5.url, opi9.url, opi2.url],
-    tag: "Point-of-Sale",
-    desc: "A family of point-of-sale fixtures for OPI, built to maintain a premium professional-salon feel inside the mass retail environment.",
-  },
-  {
-    n: "10",
-    client: "Colgate",
-    title: "Wholesale Fixture",
-    covers: [colgate1.url],
-    tag: "Wholesale Channel",
-    desc: "A fixture system built for the wholesale channel — high product density, fast restock, and a clear brand block visible across large warehouse aisles.",
-  },
-  {
-    n: "11",
-    client: "Pernod Ricard",
-    title: "Interactive Totem",
-    covers: [pernod6.url, pernod7.url],
-    tag: "Retail · Interaction",
-    desc: "A point of interaction between brand and consumer. When a bottle is removed the consumer is directed to personalized content — engaging shoppers, providing analytics about the display (pick-ups, hottest zones) and supporting product launches.",
-  },
-  {
-    n: "12",
-    client: "Tramontina",
-    title: "Tramontina Aisle",
-    covers: [tramontina.url],
-    tag: "Category Management",
-    desc: "A dedicated Tramontina aisle: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
-  }
+  { n: "01", client: "Claro", k: "w01", covers: [claro.url] },
+  { n: "02", client: "GCI — Alaska", k: "w02", covers: [gci.url] },
+  { n: "03", client: "REVLON", k: "w03", covers: [revlon.url, revlon3.url] },
+  { n: "04", client: "Quem Disse, Berenice?", k: "w04", covers: [qdb1.url] },
+  { n: "05", client: "Ponto Frio", k: "w05", covers: [pontoFrio2.url] },
+  { n: "06", client: "Pernod Ricard", k: "w06", covers: [pernod9v2.url] },
+  { n: "07", client: "Pernod Ricard", k: "w07", covers: [pernod1.url] },
+  { n: "08", client: "Risqué", k: "w08", covers: [risque.url] },
+  { n: "09", client: "OPI", k: "w09", covers: [opi5.url, opi9.url, opi2.url] },
+  { n: "10", client: "Colgate", k: "w10", covers: [colgate1.url] },
+  { n: "11", client: "Pernod Ricard", k: "w11", covers: [pernod6.url, pernod7.url] },
+  { n: "12", client: "Tramontina", k: "w12", covers: [tramontina.url] },
 ];
 
 const CreativePortfolio = () => {
+  const { t } = useLang();
+  const tk = (key: string) => t(key as keyof typeof translations);
   return (
     <main className="dark-portfolio min-h-screen bg-background text-foreground">
       {/* Nav */}
