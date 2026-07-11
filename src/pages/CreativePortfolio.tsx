@@ -165,10 +165,10 @@ const CreativePortfolio = () => {
       <section className="border-t border-border/60 py-16">
         <div className="container flex flex-col items-center justify-center gap-6 text-center">
           <h3 className="display text-2xl text-ink md:text-3xl">
-            Want to see more?
+            {t("cp_want_more")}
           </h3>
           <p className="max-w-md text-muted-foreground">
-            Download the full portfolio PDF for a complete overview of all projects.
+            {t("cp_pdf_desc")}
           </p>
           <a
             href={pdfAsset.url}
@@ -177,7 +177,7 @@ const CreativePortfolio = () => {
             className="group inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-all hover:bg-primary"
           >
             <Download className="h-4 w-4" />
-            Download full PDF portfolio
+            {t("cp_pdf_btn")}
           </a>
         </div>
       </section>
@@ -186,9 +186,12 @@ const CreativePortfolio = () => {
       <section id="contact" className="bg-ink text-background">
         <div className="container grid gap-16 py-20 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <span className="eyebrow text-primary-glow">Contact</span>
+            <div className="flex items-start justify-between gap-6">
+              <span className="eyebrow text-primary-glow">{t("contact_eyebrow_short")}</span>
+              <LanguageSwitcher variant="contact" />
+            </div>
             <h2 className="display mt-6 text-balance text-5xl md:text-7xl">
-              Let's build something <em className="italic text-primary-glow">that lasts</em>.
+              {t("contact_title_1")} <em className="italic text-primary-glow">{t("contact_title_2")}</em>.
             </h2>
           </div>
           <div className="flex items-end lg:col-span-4">
@@ -224,7 +227,7 @@ const CreativePortfolio = () => {
         <div className="border-t border-background/10">
           <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-background/50 md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} Rebeca Batista</span>
-            <span>Business Strategist</span>
+            <span>{t("footer_role")}</span>
           </div>
         </div>
       </section>
