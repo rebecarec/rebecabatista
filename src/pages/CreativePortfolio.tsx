@@ -108,19 +108,19 @@ const CreativePortfolio = () => {
                   <div className="grid grid-cols-3 gap-4">
                     <img
                       src={w.covers[0]}
-                      alt={`${w.client} — ${w.title}`}
+                      alt={`${w.client} — ${tk(w.k + "_title")}`}
                       loading="lazy"
                       className="col-span-2 row-span-2 h-full max-h-[60vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
                     <img
                       src={w.covers[1]}
-                      alt={`${w.client} — ${w.title}`}
+                      alt={`${w.client} — ${tk(w.k + "_title")}`}
                       loading="lazy"
                       className="h-full max-h-[29vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
                     <img
                       src={w.covers[2]}
-                      alt={`${w.client} — ${w.title}`}
+                      alt={`${w.client} — ${tk(w.k + "_title")}`}
                       loading="lazy"
                       className="h-full max-h-[29vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
@@ -131,7 +131,7 @@ const CreativePortfolio = () => {
                       <img
                         key={idx}
                         src={src}
-                        alt={`${w.client} — ${w.title}`}
+                        alt={`${w.client} — ${tk(w.k + "_title")}`}
                         loading="lazy"
                         className="h-auto max-h-[60vh] w-full object-contain transition-transform duration-700 ease-out hover:scale-[1.03]"
                       />
@@ -142,22 +142,23 @@ const CreativePortfolio = () => {
               <div className="lg:col-span-5">
                 <div className="flex items-baseline gap-4">
                   <span className="display text-2xl text-muted-foreground">{w.n}</span>
-                  {w.tag && <span className="eyebrow text-primary">{w.tag}</span>}
+                  <span className="eyebrow text-primary">{tk(w.k + "_tag")}</span>
                 </div>
                 <h2 className="display mt-4 text-3xl text-ink md:text-4xl">
                   {w.client}
                 </h2>
                 <h3 className="display mt-1 text-xl italic text-primary md:text-2xl">
-                  {w.title}
+                  {tk(w.k + "_title")}
                 </h3>
                 <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                  {w.desc}
+                  {tk(w.k + "_desc")}
                 </p>
               </div>
             </article>
           ))}
         </div>
       </section>
+
 
 
       {/* PDF Download */}
