@@ -51,14 +51,17 @@ const CreativePortfolio = () => {
             <span className="display text-base">Rebeca Batista</span>
           </Link>
           <div className="hidden gap-10 md:flex">
-            <Link to="/#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">About</Link>
-            <Link to="/#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">Business Expertise</Link>
-            <Link to="/creative" className="text-sm text-ink transition-colors">Creative Portfolio</Link>
-            <Link to="/#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">How I do it</Link>
+            <Link to="/#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_about")}</Link>
+            <Link to="/#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_expertise")}</Link>
+            <Link to="/creative" className="text-sm text-ink transition-colors">{t("nav_creative")}</Link>
+            <Link to="/#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_how")}</Link>
           </div>
-          <Link to="/#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
-            Contact
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher variant="nav" />
+            <Link to="/#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
+              {t("nav_contact")}
+            </Link>
+          </div>
         </nav>
       </header>
 
