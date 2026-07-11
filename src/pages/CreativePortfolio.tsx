@@ -17,6 +17,8 @@ import colgate1 from "@/assets/portfolio/colgate-1.jpg.asset.json";
 import revlon from "@/assets/portfolio/revlon-lee-dufry-2.jpg.asset.json";
 import revlon3 from "@/assets/portfolio/revlon-3.jpg.asset.json";
 import tramontina from "@/assets/portfolio/tramontina-1.jpg.asset.json";
+import { useLang, translations } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type Work = {
   n: string;
