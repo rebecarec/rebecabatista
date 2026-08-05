@@ -220,15 +220,15 @@ const Index = () => {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-ink text-background">
+      <section id="contact" className="bg-gradient-sun text-ink">
         <div className="container grid gap-16 py-20 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <div className="flex items-start justify-between gap-6">
-              <span className="eyebrow text-primary-glow">{t("contact_eyebrow")}</span>
+              <span className="eyebrow text-ink/70">{t("contact_eyebrow")}</span>
               <LanguageSwitcher variant="contact" />
             </div>
             <h2 className="display mt-6 text-balance text-5xl md:text-7xl">
-              {t("contact_title_1")} <em className="italic text-primary-glow">{t("contact_title_2")}</em>.
+              {t("contact_title_1")} <em className="italic text-primary">{t("contact_title_2")}</em>.
             </h2>
           </div>
           <div className="flex items-end lg:col-span-4">
@@ -236,7 +236,7 @@ const Index = () => {
               <a
                 href="mailto:rebeca.ocb@gmail.com"
                 aria-label="Email Rebeca"
-                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -245,7 +245,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -254,15 +254,15 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="grid h-12 w-12 place-items-center rounded-full border border-background/30 transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
               >
                 <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
-        <div className="border-t border-background/10">
-          <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-background/50 md:flex-row md:items-center">
+        <div className="border-t border-ink/10">
+          <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-ink/50 md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} Rebeca Batista</span>
             <span>{t("footer_role")}</span>
           </div>
