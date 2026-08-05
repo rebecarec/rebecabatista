@@ -31,7 +31,7 @@ const partnerships = [
 const Marquee = () => {
   const items = [...marqueeWords, ...marqueeWords];
   return (
-    <div className="overflow-hidden border-y border-border/70 bg-paper py-5">
+    <div className="overflow-hidden border-y border-border/70 bg-gradient-sun py-5">
       <div className="flex w-max animate-marquee items-center whitespace-nowrap">
         {items.map((w, i) => (
           <span key={i} className="flex items-center">
