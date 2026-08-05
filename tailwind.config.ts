@@ -56,6 +56,7 @@ export default {
       },
       backgroundImage: {
         'gradient-warm': 'var(--gradient-warm)',
+        'gradient-sun': 'var(--gradient-sun)',
         'gradient-fade': 'var(--gradient-fade)',
       },
       boxShadow: {
