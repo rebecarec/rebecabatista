@@ -6,45 +6,45 @@
 
 @layer base {
   :root {
-    /* DAY — 80% yellow, 20% navy ink as accent */
-    --background: 54 70% 84%;
-    --foreground: 230 55% 16%;
+    /* DAY — clean white and black, no yellow */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
 
-    --card: 54 70% 84%;
-    --card-foreground: 230 55% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 54 70% 84%;
-    --popover-foreground: 230 55% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 231 62% 26%;
-    --primary-foreground: 56 100% 92%;
-    --primary-glow: 55 100% 55%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 0% 20%;
 
-    --secondary: 54 65% 80%;
-    --secondary-foreground: 230 55% 16%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 54 60% 78%;
-    --muted-foreground: 230 18% 38%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 8%;
 
-    --accent: 55 100% 55%;
-    --accent-foreground: 231 62% 20%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 54 70% 84%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 50 30% 72%;
-    --input: 50 30% 72%;
-    --ring: 231 62% 26%;
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
+    --ring: 0 0% 8%;
 
-    --ink: 231 62% 18%;
-    --cream: 56 72% 80%;
-    --paper: 52 78% 78%;
+    --ink: 0 0% 8%;
+    --cream: 0 0% 94%;
+    --paper: 0 0% 92%;
 
-    --gradient-warm: linear-gradient(135deg, hsl(231 62% 26%), hsl(55 100% 55%));
-    --gradient-sun: linear-gradient(135deg, hsl(55 100% 62%), hsl(50 100% 74%));
-    --gradient-fade: linear-gradient(180deg, hsl(54 70% 84% / 0), hsl(54 70% 84%));
-    --shadow-soft: 0 30px 60px -30px hsl(231 62% 18% / 0.25);
-    --shadow-glow: 0 0 80px hsl(55 100% 55% / 0.35);
+    --gradient-warm: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 36%));
+    --gradient-sun: linear-gradient(135deg, hsl(0 0% 94%), hsl(0 0% 98%));
+    --gradient-fade: linear-gradient(180deg, hsl(0 0% 98% / 0), hsl(0 0% 98%));
+    --shadow-soft: 0 30px 60px -30px hsl(0 0% 8% / 0.25);
+    --shadow-glow: 0 0 80px hsl(0 0% 20% / 0.18);
 
     --radius: 0.75rem;
   }
