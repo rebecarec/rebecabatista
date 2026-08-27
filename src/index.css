@@ -1,8 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600&family=Special+Elite&display=swap');
 
+@font-face {
+  font-family: 'Neutra Text';
+  src: url('/__l5e/assets-v1/437c1db5-1134-4775-8957-a08dac340d6b/neutra-text-LIGHT.otf') format('opentype');
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neutra Text';
+  src: url('/__l5e/assets-v1/67d0fce1-f079-4a87-932b-c522b121e15d/neutra-text-DEMI.otf') format('opentype');
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neutra Text';
+  src: url('/__l5e/assets-v1/60cc01a8-c5b6-4e7c-a4cc-ad0fd219cefd/neutra-text-BOLD.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   :root {
