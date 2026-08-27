@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Neutra Text';
-  src: url('/__l5e/assets-v1/437c1db5-1134-4775-8957-a08dac340d6b/neutra-text-LIGHT.otf') format('opentype');
+  src: url('/__l5e/assets-v1/9cb4d638-8503-4958-9a17-30614f0eee10/neutra-text-BOOK.otf') format('opentype');
   font-weight: 100 400;
   font-style: normal;
   font-display: swap;
@@ -29,45 +29,45 @@
 
 @layer base {
   :root {
-    /* DAY — clean white and black, no yellow */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 8%;
+    /* DAY — warm paper, golden body text, blue + cocoa accents */
+    --background: 33 41% 94%;
+    --foreground: 42 32% 54%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 33 41% 97%;
+    --card-foreground: 42 32% 54%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 33 41% 97%;
+    --popover-foreground: 42 32% 54%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 0 0% 20%;
+    --primary: 18 45% 23%;
+    --primary-foreground: 33 41% 94%;
+    --primary-glow: 203 25% 65%;
 
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 33 30% 89%;
+    --secondary-foreground: 18 45% 23%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 8%;
+    --muted: 33 30% 89%;
+    --muted-foreground: 42 32% 54%;
 
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 203 25% 65%;
+    --accent-foreground: 18 45% 23%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 33 41% 94%;
 
-    --border: 0 0% 80%;
-    --input: 0 0% 80%;
-    --ring: 0 0% 8%;
+    --border: 33 24% 82%;
+    --input: 33 24% 82%;
+    --ring: 203 25% 65%;
 
-    --ink: 0 0% 8%;
-    --cream: 0 0% 94%;
-    --paper: 0 0% 92%;
+    --ink: 18 45% 23%;
+    --cream: 33 41% 96%;
+    --paper: 33 34% 91%;
 
-    --gradient-warm: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 36%));
-    --gradient-sun: linear-gradient(135deg, hsl(0 0% 94%), hsl(0 0% 98%));
-    --gradient-fade: linear-gradient(180deg, hsl(0 0% 98% / 0), hsl(0 0% 98%));
-    --shadow-soft: 0 30px 60px -30px hsl(0 0% 8% / 0.25);
-    --shadow-glow: 0 0 80px hsl(0 0% 20% / 0.18);
+    --gradient-warm: linear-gradient(135deg, hsl(18 45% 23%), hsl(203 25% 65%));
+    --gradient-sun: linear-gradient(135deg, hsl(33 41% 96%), hsl(203 25% 88%));
+    --gradient-fade: linear-gradient(180deg, hsl(33 41% 94% / 0), hsl(33 41% 94%));
+    --shadow-soft: 0 30px 60px -30px hsl(18 45% 23% / 0.3);
+    --shadow-glow: 0 0 80px hsl(203 25% 65% / 0.25);
 
     --radius: 0.75rem;
   }
@@ -157,10 +157,10 @@
 body {
   background-color: hsl(var(--background));
   background-image:
-    radial-gradient(circle at 8% 10%, hsl(0 0% 92% / 0.95), transparent 46%),
-    radial-gradient(circle at 95% 18%, hsl(0 0% 96% / 0.85), transparent 52%),
-    radial-gradient(circle at 85% 82%, hsl(0 0% 94% / 0.75), transparent 56%),
-    radial-gradient(circle at 45% 55%, hsl(0 0% 88% / 0.35), transparent 60%),
+    radial-gradient(circle at 8% 10%, hsl(33 45% 91% / 0.95), transparent 46%),
+    radial-gradient(circle at 95% 18%, hsl(203 25% 88% / 0.5), transparent 52%),
+    radial-gradient(circle at 85% 82%, hsl(33 40% 90% / 0.75), transparent 56%),
+    radial-gradient(circle at 45% 55%, hsl(42 32% 80% / 0.25), transparent 60%),
     radial-gradient(circle at 70% 8%, hsl(var(--primary) / 0.04), transparent 42%),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0.12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
   background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;

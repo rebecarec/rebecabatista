@@ -1,5 +1,5 @@
 import { Mail, Linkedin, Github } from "lucide-react";
-import portrait from "@/assets/rebeca.jpg";
+import portrait from "@/assets/rebeca-portrait.jpg.asset.json";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
@@ -90,13 +90,13 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 grain opacity-60" />
-        <div className="container relative grid grid-cols-1 items-center gap-12 pb-20 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-8">
+        <div className="relative grid grid-cols-1 items-stretch lg:grid-cols-2">
+          <div className="container flex flex-col justify-center py-16 lg:py-24">
             <div className="flex items-center gap-3 text-muted-foreground">
               <span className="h-px w-10 bg-ink/30" />
               <span className="eyebrow text-ink">{t("hero_role")}</span>
             </div>
-            <h1 className="display mt-6 text-balance text-[clamp(3rem,8vw,7.5rem)] font-light text-ink">
+            <h1 className="display mt-6 text-balance text-[clamp(3rem,7vw,6.5rem)] font-light text-ink">
               Rebeca <em className="font-normal italic text-primary">Batista</em>
             </h1>
             <div className="mt-8 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
@@ -105,12 +105,14 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="relative lg:col-span-4">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-sm shadow-soft">
-              <img src={portrait} alt="Portrait of Rebeca Batista" className="h-full w-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-4">
-                <span className="eyebrow text-background">{t("hero_caption")}</span>
-              </div>
+          <div className="relative min-h-[420px] lg:min-h-[600px]">
+            <img
+              src={portrait.url}
+              alt="Portrait of Rebeca Batista"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-5">
+              <span className="eyebrow text-background">{t("hero_caption")}</span>
             </div>
           </div>
         </div>
