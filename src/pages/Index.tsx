@@ -1,5 +1,5 @@
 import { Mail, Linkedin, Github } from "lucide-react";
-import portrait from "@/assets/rebeca.jpg";
+import portrait from "@/assets/rebeca-portrait.jpg.asset.json";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
