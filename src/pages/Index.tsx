@@ -90,14 +90,14 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 grain opacity-60" />
-        <div className="relative grid grid-cols-1 items-stretch lg:grid-cols-2">
-          <div className="container flex flex-col justify-center py-16 lg:py-24">
+        <div className="container relative grid grid-cols-1 items-center gap-12 py-14 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
             <div className="flex items-center gap-3 text-muted-foreground">
-              <span className="h-px w-10 bg-ink/30" />
+              <span className="h-px w-10 bg-accent" />
               <span className="eyebrow text-ink">{t("hero_role")}</span>
             </div>
             <h1 className="display mt-6 text-balance text-[clamp(3rem,7vw,6.5rem)] font-light text-ink">
-              Rebeca <em className="font-normal italic text-primary">Batista</em>
+              Rebeca <em className="font-normal italic text-accent">Batista</em>
             </h1>
             <div className="mt-8 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
               <p>{t("hero_p1")}</p>
@@ -105,14 +105,17 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="relative min-h-[420px] lg:min-h-[600px]">
-            <img
-              src={portrait.url}
-              alt="Portrait of Rebeca Batista"
-              className="absolute inset-0 h-full w-full object-cover object-top"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/40 to-transparent p-5">
-              <span className="eyebrow text-background">{t("hero_caption")}</span>
+          <div className="relative lg:col-span-5">
+            <span className="tape left-6 -top-3 z-10" />
+            <div className="relative aspect-square w-full overflow-hidden rounded-sm shadow-soft ring-1 ring-accent/40">
+              <img
+                src={portrait.url}
+                alt="Portrait of Rebeca Batista"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/50 to-transparent p-5">
+                <span className="eyebrow text-background">{t("hero_caption")}</span>
+              </div>
             </div>
           </div>
         </div>
