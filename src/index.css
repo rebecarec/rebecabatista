@@ -201,9 +201,9 @@ main.dark-portfolio {
   position: absolute;
   width: 96px;
   height: 22px;
-  background: hsl(var(--primary) / 0.55);
+  background: hsl(var(--accent) / 0.55);
   background-image:
-    repeating-linear-gradient(45deg, hsl(var(--primary) / 0.25) 0 6px, transparent 6px 12px);
+    repeating-linear-gradient(45deg, hsl(var(--accent) / 0.35) 0 6px, transparent 6px 12px);
   box-shadow: 0 4px 10px -4px hsl(var(--ink) / 0.35);
   transform: rotate(-6deg);
   pointer-events: none;

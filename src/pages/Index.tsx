@@ -1,5 +1,5 @@
 import { Mail, Linkedin, Github } from "lucide-react";
-import portrait from "@/assets/rebeca-portrait.jpg.asset.json";
+import portrait from "@/assets/rebeca-square.png.asset.json";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
@@ -36,7 +36,7 @@ const Marquee = () => {
         {items.map((w, i) => (
           <span key={i} className="flex items-center">
             <span className="display text-3xl md:text-5xl text-ink/80 px-8">{w}</span>
-            <span className="display text-3xl md:text-5xl text-primary">✦</span>
+            <span className="display text-3xl md:text-5xl text-accent">✦</span>
           </span>
         ))}
       </div>
@@ -127,7 +127,7 @@ const Index = () => {
       <section id="about" className="container py-24">
         <div className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <span className="eyebrow text-primary">{t("about_eyebrow")}</span>
+            <span className="eyebrow text-accent">{t("about_eyebrow")}</span>
             <h2 className="display mt-6 text-5xl text-ink md:text-6xl">
               {t("about_title_1")} <em className="italic text-primary">{t("about_title_2")}</em>.
             </h2>
@@ -209,7 +209,7 @@ const Index = () => {
 
       {/* How I do it */}
       <section id="how" className="container py-20">
-        <span className="eyebrow text-primary">{t("how_eyebrow")}</span>
+        <span className="eyebrow text-accent">{t("how_eyebrow")}</span>
         <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
           {t("how_title_1")} <em className="italic text-primary">{t("how_title_2")}</em> {t("how_title_3")}
         </h2>

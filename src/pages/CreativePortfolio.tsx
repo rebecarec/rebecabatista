@@ -95,7 +95,7 @@ const CreativePortfolio = () => {
 
       {/* Works */}
       <section className="container">
-        <div className="divide-y divide-orange-500/60">
+        <div className="divide-y divide-primary/40">
           {works.map((w, i) => (
             <article
               key={w.n}
