@@ -73,44 +73,44 @@
   }
 
   .dark-portfolio {
-    /* NIGHT — deep navy, yellow as the only light source */
-    --background: 231 45% 8%;
-    --foreground: 56 30% 93%;
+    /* NIGHT — inverse of the day palette: deep cocoa base, warm gold text, blue accents */
+    --background: 18 45% 10%;
+    --foreground: 33 41% 94%;
 
-    --card: 231 40% 11%;
-    --card-foreground: 56 30% 93%;
+    --card: 18 40% 13%;
+    --card-foreground: 33 41% 94%;
 
-    --popover: 231 40% 11%;
-    --popover-foreground: 56 30% 93%;
+    --popover: 18 40% 13%;
+    --popover-foreground: 33 41% 94%;
 
-    --primary: 54 100% 58%;
-    --primary-foreground: 231 62% 12%;
-    --primary-glow: 52 100% 68%;
+    --primary: 203 25% 65%;
+    --primary-foreground: 18 45% 12%;
+    --primary-glow: 42 32% 62%;
 
-    --secondary: 231 30% 16%;
-    --secondary-foreground: 56 30% 93%;
+    --secondary: 18 30% 17%;
+    --secondary-foreground: 33 41% 94%;
 
-    --muted: 231 24% 18%;
-    --muted-foreground: 55 12% 62%;
+    --muted: 18 26% 18%;
+    --muted-foreground: 42 32% 66%;
 
-    --accent: 54 100% 58%;
-    --accent-foreground: 231 62% 12%;
+    --accent: 42 32% 54%;
+    --accent-foreground: 18 45% 12%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 56 30% 93%;
+    --destructive-foreground: 33 41% 94%;
 
-    --border: 231 22% 22%;
-    --input: 231 22% 22%;
-    --ring: 54 100% 58%;
+    --border: 18 22% 24%;
+    --input: 18 22% 24%;
+    --ring: 203 25% 65%;
 
-    --ink: 56 30% 95%;
-    --cream: 231 35% 11%;
-    --paper: 231 30% 14%;
+    --ink: 33 41% 95%;
+    --cream: 18 35% 13%;
+    --paper: 18 30% 16%;
 
-    --gradient-warm: linear-gradient(135deg, hsl(54 100% 58%), hsl(46 100% 66%));
-    --gradient-sun: linear-gradient(135deg, hsl(54 100% 58%), hsl(48 100% 50%));
-    --gradient-fade: linear-gradient(180deg, hsl(231 45% 8% / 0), hsl(231 45% 8%));
-    --shadow-soft: 0 30px 60px -30px hsl(54 100% 58% / 0.15);
+    --gradient-warm: linear-gradient(135deg, hsl(203 25% 65%), hsl(42 32% 54%));
+    --gradient-sun: linear-gradient(135deg, hsl(203 25% 55%), hsl(42 32% 48%));
+    --gradient-fade: linear-gradient(180deg, hsl(18 45% 10% / 0), hsl(18 45% 10%));
+    --shadow-soft: 0 30px 60px -30px hsl(203 25% 65% / 0.2);
   }
 
 }
@@ -171,8 +171,8 @@ body {
 main.dark-portfolio {
   background-color: hsl(var(--background));
   background-image:
-    radial-gradient(circle at 15% 10%, hsl(54 100% 58% / 0.14), transparent 45%),
-    radial-gradient(circle at 85% 90%, hsl(231 80% 40% / 0.35), transparent 55%),
+    radial-gradient(circle at 15% 10%, hsl(203 25% 65% / 0.16), transparent 45%),
+    radial-gradient(circle at 85% 90%, hsl(42 32% 54% / 0.18), transparent 55%),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.90  0 0 0 0 0.82  0 0 0 0.14 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-attachment: fixed, fixed, fixed;
   background-size: auto, auto, 320px 320px;
@@ -201,9 +201,9 @@ main.dark-portfolio {
   position: absolute;
   width: 96px;
   height: 22px;
-  background: hsl(var(--primary) / 0.55);
+  background: hsl(var(--accent) / 0.55);
   background-image:
-    repeating-linear-gradient(45deg, hsl(var(--primary) / 0.25) 0 6px, transparent 6px 12px);
+    repeating-linear-gradient(45deg, hsl(var(--accent) / 0.35) 0 6px, transparent 6px 12px);
   box-shadow: 0 4px 10px -4px hsl(var(--ink) / 0.35);
   transform: rotate(-6deg);
   pointer-events: none;
