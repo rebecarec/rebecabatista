@@ -120,7 +120,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans font-light antialiased;
     font-feature-settings: "ss01", "ss02";
   }
   h1, h2, h3, h4 {
