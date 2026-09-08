@@ -200,6 +200,57 @@ export const translations: Dict = {
     en: "A dedicated Tramontina aisle: kitchen, tea & coffee and tabletop categories organised to guide the shopper from inspiration to purchase.",
     pt: "Um corredor dedicado à Tramontina: cozinha, chá & café e mesa posta organizados para levar o shopper da inspiração à compra.",
   },
+
+  // --- Home (V1 design) ---
+  nav_connect: { en: "Connect!", pt: "Contato!" },
+  nav_translate: { en: "Translate", pt: "Traduzir" },
+  home_hello: { en: "Hello, I'm Rebeca", pt: "Olá, eu sou a Rebeca" },
+  home_intro: {
+    en: "! A professional with over a decade of experience in consumer goods and retail strategy. My work consists in connecting complex company goals with the operational groundwork needed to scale them. In such environments, I believe that being ready and responsive for change is key to succeed, from learning new skills to adapting to different cultures, I am always ready to ",
+    pt: "! Profissional com mais de uma década de experiência em bens de consumo e estratégia de varejo. Meu trabalho consiste em conectar objetivos complexos das empresas com a base operacional necessária para escalá-los. Nesses ambientes, acredito que estar pronta e responsiva à mudança é a chave para o sucesso — de aprender novas habilidades a me adaptar a diferentes culturas, estou sempre pronta para ",
+  },
+  home_intro_em: { en: "put in the work", pt: "colocar a mão na massa" },
+  home_quote: {
+    en: "It is not the strongest that survive, but the most responsive to change",
+    pt: "Não sobrevivem os mais fortes, mas os mais responsivos à mudança",
+  },
+  home_quote_author: { en: "— Megginson", pt: "— Megginson" },
+  home_recent: { en: "Recent Projects", pt: "Projetos Recentes" },
+  home_more_projects: { en: "Click here and check more projects", pt: "Clique aqui e veja mais projetos" },
+  sector_finance: { en: "Finance", pt: "Finanças" },
+  sector_health: { en: "Healthcare", pt: "Saúde" },
+  sector_tech: { en: "Technology", pt: "Tecnologia" },
+  proj_autodesk_title: { en: "Software optimization for data-centers", pt: "Otimização de software para data centers" },
+  proj_autodesk_desc: {
+    en: "When construction sites have new needs, how effectively can a leading tool grow? Here, I worked researching not only the current scenario of data-centers, but also the forecast of the whole industry. At the end, building a software improvement for Autodesk.",
+    pt: "Quando os canteiros de obras têm novas necessidades, quão bem uma ferramenta líder consegue evoluir? Aqui, pesquisei não só o cenário atual dos data centers, mas também a projeção de toda a indústria. Ao final, construí uma melhoria de software para a Autodesk.",
+  },
+  story_title: { en: "My story", pt: "Minha história" },
+  story_p1: {
+    en: "I've always loved to learn. As a child I saw studying as a way to change my reality and learn more about the world. Through the books, I found comfort and explored everything from ancient civilizations to complex philosophies.",
+    pt: "Sempre amei aprender. Quando criança, via os estudos como uma forma de mudar minha realidade e conhecer o mundo. Nos livros encontrei conforto e explorei de civilizações antigas a filosofias complexas.",
+  },
+  story_p2: {
+    en: "Growing up, I invested my time working and studying a very diverse mix of fields. From chemistry, passing through Architecture, Neuroscience, and most recently my MBA. Still, one frustrating feeling was always present, I've always felt like I am not ",
+    pt: "Ao crescer, investi meu tempo trabalhando e estudando áreas bem diversas. Da Química, passando por Arquitetura, Neurociência e, mais recentemente, meu MBA. Ainda assim, uma sensação frustrante sempre esteve presente: sempre senti que não sou ",
+  },
+  story_p2_em: { en: "just that", pt: "apenas isso" },
+  story_l1: { en: "I've studied Chemistry, and while I can perform lab analyses, but I am not just that", pt: "Estudei Química e sei fazer análises laboratoriais, mas não sou apenas isso" },
+  story_l2: { en: "I've studied Architecture, I can design cities, but I am not just that", pt: "Estudei Arquitetura, sei projetar cidades, mas não sou apenas isso" },
+  story_l3: { en: "I've studied Neuroscience, I can understand the brain and behaviors on detail, but I am not just that", pt: "Estudei Neurociência, entendo o cérebro e o comportamento em detalhe, mas não sou apenas isso" },
+  story_l4: { en: "I've studied Business and Analytics, I can manage companies an complex datasets, but I am not just that.", pt: "Estudei Negócios e Analytics, sei gerir empresas e dados complexos, mas não sou apenas isso." },
+  story_p3: {
+    en: "While thinking about my career and the paths that guided me here, I realized that easier than explaining myself through boxes, it is better to show it by sharing what I have worked on, an my thinking processes on those projects.",
+    pt: "Pensando na minha carreira e nos caminhos que me trouxeram até aqui, percebi que, mais fácil do que me explicar por rótulos, é mostrar — compartilhando no que trabalhei e como penso nesses projetos.",
+  },
+  story_p4a: { en: "On this website, you can find more about ", pt: "Neste site, você encontra mais sobre " },
+  story_p4b: { en: "how I think, how I work, and the many lives that I have lived", pt: "como eu penso, como eu trabalho e as muitas vidas que já vivi" },
+  story_p4c: {
+    en: ". By visiting my projects section, you can learn more about me, for more than a title or a study, but for who I really am.",
+    pt: ". Ao visitar a seção de projetos, você pode me conhecer para além de um título ou de um curso — por quem eu realmente sou.",
+  },
+  contact_label: { en: "Contact", pt: "Contato" },
+  contact_headline: { en: "Let's work together!", pt: "Vamos trabalhar juntos!" },
 };
 
 type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (key: keyof typeof translations) => string };
