@@ -72,12 +72,6 @@ const Index = () => {
             <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-warm text-primary-foreground display text-base font-semibold">R</span>
             <span className="display text-base">Rebeca Batista</span>
           </a>
-          <div className="hidden gap-10 md:flex">
-            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_about")}</a>
-            <a href="#expertise" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_expertise")}</a>
-            <a href="/creative" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_creative")}</a>
-            <a href="#how" className="text-sm text-muted-foreground transition-colors hover:text-ink">{t("nav_how")}</a>
-          </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher variant="nav" />
             <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
