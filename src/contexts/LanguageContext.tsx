@@ -6,10 +6,6 @@ type Dict = Record<string, { en: string; pt: string }>;
 
 export const translations: Dict = {
   // Nav
-  nav_about: { en: "About", pt: "Sobre" },
-  nav_expertise: { en: "Business Expertise", pt: "Expertise em Negócios" },
-  nav_creative: { en: "Creative Portfolio", pt: "Portfólio Criativo" },
-  nav_how: { en: "How I do it", pt: "Como eu trabalho" },
   nav_contact: { en: "Contact", pt: "Contato" },
 
   // Hero
