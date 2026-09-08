@@ -1,42 +1,30 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Menu } from "lucide-react";
 import portrait from "@/assets/rebeca-square.png.asset.json";
-import project1 from "@/assets/project-1.png";
-import project2 from "@/assets/project-2.png";
-import project3 from "@/assets/project-3.png";
-import project4 from "@/assets/project-4.png";
-import mtbankHeader from "@/assets/mtbank-presentation.jpeg";
+import presentation from "@/assets/mtbank-presentation.jpeg";
+import headshot from "@/assets/rebeca.jpg";
 import { useLang } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-const marqueeWords = [
-  "Strategy Development", "Implementation Roadmap", "Forecasting", "Budgeting",
-  "Long-term Value Creation", "Strategic Recommendations", "Go-to-Market Strategy",
-  "Cash-flow Management", "Retail Strategy", "Key-Account Development Strategy",
-  "Business Intelligence", "Operations Management", "Leadership", "Project Implementation",
-  "Customer Behavior", "Risk Assessment", "Accessible Market Analysis",
-  "Financial Ratios Analysis", "Statistical Process Control", "Hypothesis Testing",
-  "PDF & CDF's", "Waterfall & Agile PM Methodology", "MECE Framework",
-  "BCG Growth Share Matrix", "Platform Canvas Framework", "Power BI", "Tableau",
-  "Python", "SQL", "ERP Systems", "Smartsheet", "Microsoft Office",
-  "Google Sheets", "Adobe Creative Cloud", "Autocad", "Sketchup", "Canva",
+const ribbonWords = [
+  "MECE Framework", "BCG Growth Share Matrix", "Platform Canvas Framework", "Power BI",
+  "Tableau", "Long-term Value Creation", "Python", "SQL", "ERP Systems", "Smartsheet",
+  "Microsoft Office", "Google Sheets", "Adobe Creative Cloud", "Autocad", "Sketchup",
+  "Canva", "Waterfall & Agile Project Management", "Accessible Market Analysis",
+  "Risk Assessment", "Customer Behavior", "Neuroscience", "Leadership",
+  "Operations Management", "Business Intelligence", "Key-Account Development Strategy",
+  "Retail Strategy", "Cash-Flow Management", "Budgeting and Forecasting",
+  "Implementation Roadmap", "Strategy Development", "5 Forces Analysis", "PESTEL Analysis",
 ];
 
-const partnerships = [
-  { src: project1, label: "M&T Bank" },
-  { src: project2, label: "Gosta Labs" },
-  { src: project3, label: "Hult Cup" },
-  { src: project4, label: "OPPO" },
-];
-
-const Marquee = () => {
-  const items = [...marqueeWords, ...marqueeWords];
+const Ribbon = () => {
+  const items = [...ribbonWords, ...ribbonWords];
   return (
-    <div className="overflow-hidden border-y border-border/70 bg-gradient-sun py-5">
+    <div className="overflow-hidden bg-gradient-sun py-3.5">
       <div className="flex w-max animate-marquee items-center whitespace-nowrap">
         {items.map((w, i) => (
-          <span key={i} className="flex items-center">
-            <span className="display text-3xl md:text-5xl text-ink/80 px-8">{w}</span>
-            <span className="display text-3xl md:text-5xl text-accent">✦</span>
+          <span key={i} className="flex items-center text-base text-white md:text-lg">
+            <span className="px-3 opacity-80">✦</span>
+            <span className="font-light">{w}</span>
           </span>
         ))}
       </div>
@@ -48,225 +36,178 @@ const Index = () => {
   const { t } = useLang();
 
   const projects = [
-    { client: "M&T Bank", title: t("proj_mt_title"), desc: t("proj_mt_desc") },
-    { client: "Gosta Labs", title: t("proj_gosta_title"), desc: t("proj_gosta_desc") },
-    { client: "Hult Cup", title: t("proj_hult_title"), desc: t("proj_hult_desc") },
-    { client: "Planet Fitness", title: t("proj_pf_title"), desc: t("proj_pf_desc") },
-  ];
-
-  const howIDoIt = [
-    { n: "01", title: t("step_listen"), desc: t("step_listen_d") },
-    { n: "02", title: t("step_diag"), desc: t("step_diag_d") },
-    { n: "03", title: t("step_model"), desc: t("step_model_d") },
-    { n: "04", title: t("step_val"), desc: t("step_val_d") },
-    { n: "05", title: t("step_rec"), desc: t("step_rec_d") },
-    { n: "06", title: t("step_op"), desc: t("step_op_d") },
+    { client: "M&T Bank", sector: t("sector_finance"), title: t("proj_mt_title"), desc: t("proj_mt_desc") },
+    { client: "Gosta Labs", sector: t("sector_health"), title: t("proj_gosta_title"), desc: t("proj_gosta_desc") },
+    { client: "Hult Cup", sector: t("sector_tech"), title: t("proj_hult_title"), desc: t("proj_hult_desc") },
+    { client: "Autodesk", sector: t("sector_tech"), title: t("proj_autodesk_title"), desc: t("proj_autodesk_desc") },
   ];
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-xl">
         <nav className="container flex h-14 items-center justify-between">
-          <a href="#" className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-warm text-primary-foreground display text-base font-semibold">R</span>
-            <span className="display text-base">Rebeca Batista</span>
+          <a href="#" className="flex items-center gap-2.5">
+            <span className="text-lg text-primary">✵</span>
+            <span className="display text-lg text-primary">Rebeca Batista</span>
           </a>
-          <div className="flex items-center gap-4">
-            <LanguageSwitcher variant="nav" />
-            <a href="#contact" className="rounded-full border border-ink/20 px-4 py-1.5 text-sm font-medium text-ink transition-all hover:bg-ink hover:text-background">
-              {t("nav_contact")}
+          <div className="flex items-center gap-2.5">
+            <a
+              href="#story"
+              aria-label="Menu"
+              className="grid h-8 w-9 place-items-center rounded-md border border-border text-primary transition-colors hover:bg-secondary"
+            >
+              <Menu className="h-4 w-4" />
+            </a>
+            <div className="flex items-center gap-2 rounded-md border border-border px-2.5 py-1.5">
+              <span className="hidden text-xs font-medium text-primary sm:inline">{t("nav_translate")}</span>
+              <LanguageSwitcher variant="nav" />
+            </div>
+            <a
+              href="#contact"
+              className="rounded-md bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              {t("nav_connect")}
             </a>
           </div>
         </nav>
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 grain opacity-60" />
-        <div className="container relative grid grid-cols-1 items-center gap-12 py-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 text-muted-foreground">
-              <span className="h-px w-10 bg-accent" />
-              <span className="eyebrow text-ink">{t("hero_role")}</span>
-            </div>
-            <h1 className="display mt-6 text-balance text-[clamp(3rem,7vw,6.5rem)] font-light text-ink">
-              Rebeca <em className="font-normal italic text-accent">Batista</em>
-            </h1>
-            <div className="mt-8 max-w-xl space-y-4 text-lg text-muted-foreground md:text-xl">
-              <p>{t("hero_p1")}</p>
-              <p>{t("hero_p2")}</p>
+      <section className="container grid grid-cols-1 items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
+        {/* Photo collage */}
+        <div className="relative mx-auto h-[380px] w-full max-w-[520px] md:h-[480px]">
+          <img
+            src={presentation}
+            alt="Rebeca presenting at M&T Bank"
+            className="absolute left-0 top-[18%] w-[46%] rotate-[-4deg] rounded-md border-[6px] border-white object-cover shadow-soft"
+          />
+          <img
+            src={portrait.url}
+            alt="Portrait of Rebeca Batista"
+            className="absolute right-[6%] top-0 w-[52%] rotate-[3deg] rounded-md border-[6px] border-white object-cover shadow-soft"
+          />
+          <img
+            src={headshot}
+            alt="Rebeca Batista"
+            className="absolute bottom-0 left-[4%] w-[40%] rotate-[-2deg] rounded-md border-[6px] border-white object-cover shadow-soft"
+          />
+        </div>
+
+        {/* Text */}
+        <div>
+          <p className="max-w-xl text-justify text-[15px] leading-relaxed md:text-base">
+            <em className="font-medium">{t("home_hello")}</em>
+            {t("home_intro")}
+            <em>{t("home_intro_em")}</em>.
+          </p>
+          <blockquote className="mt-12">
+            <p className="display text-balance text-3xl leading-tight text-primary md:text-[2.6rem]">
+              “{t("home_quote")}”
+            </p>
+            <footer className="mt-2 text-right text-sm text-primary">{t("home_quote_author")}</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <Ribbon />
+
+      {/* Recent projects */}
+      <section id="projects" className="container py-12">
+        <h2 className="display text-xl text-primary">{t("home_recent")}</h2>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <article key={p.client} className="rounded-lg border border-border p-6 transition-colors hover:border-accent">
+              <span className="text-sm">{p.client} [{p.sector}]</span>
+              <h3 className="display mt-2 text-xl font-semibold text-primary">{p.title}</h3>
+              <p className="mt-3 text-justify text-sm leading-relaxed">{p.desc}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://www.linkedin.com/in/rebecarec/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            {t("home_more_projects")}
+          </a>
+        </div>
+      </section>
+
+      {/* My story */}
+      <section id="story" className="bg-paper">
+        <div className="container grid gap-10 py-14 lg:grid-cols-[1fr_340px]">
+          <div>
+            <h2 className="display text-xl text-primary">{t("story_title")}</h2>
+            <div className="mt-5 space-y-4 text-justify text-[15px] leading-relaxed">
+              <p>{t("story_p1")}</p>
+              <p>{t("story_p2")}<em>“{t("story_p2_em")}”</em>.</p>
+              <div>
+                <p>{t("story_l1")}</p>
+                <p>{t("story_l2")}</p>
+                <p>{t("story_l3")}</p>
+                <p>{t("story_l4")}</p>
+              </div>
+              <p>{t("story_p3")}</p>
+              <p>
+                {t("story_p4a")}
+                <strong className="font-semibold text-primary">{t("story_p4b")}</strong>
+                {t("story_p4c")}
+              </p>
             </div>
           </div>
-
-          <div className="relative lg:col-span-5">
-            <span className="tape left-6 -top-3 z-10" />
-            <div className="relative aspect-square w-full overflow-hidden rounded-sm shadow-soft ring-1 ring-accent/40">
-              <img
-                src={portrait.url}
-                alt="Portrait of Rebeca Batista"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/50 to-transparent p-5">
-                <span className="eyebrow text-background">{t("hero_caption")}</span>
-              </div>
-            </div>
+          <div className="justify-self-center lg:justify-self-end">
+            <img
+              src={presentation}
+              alt="Rebeca presenting research findings"
+              className="h-full max-h-[420px] w-full rounded-md object-cover"
+            />
           </div>
         </div>
       </section>
 
-      <Marquee />
-
-      {/* About */}
-      <section id="about" className="container py-24">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <span className="eyebrow text-accent">{t("about_eyebrow")}</span>
-            <h2 className="display mt-6 text-5xl text-ink md:text-6xl">
-              {t("about_title_1")} <em className="italic text-primary">{t("about_title_2")}</em>.
-            </h2>
-          </div>
-          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
-            <p>{t("about_p1")}</p>
-            <p>{t("about_p2")}</p>
-          </div>
-        </div>
-
-        {/* Recent projects gallery */}
-        <div className="mt-16">
-          <span className="eyebrow text-muted-foreground">{t("recent_projects")}</span>
-          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {partnerships.map((p, i) => (
-              <div
-                key={i}
-                className="group relative aspect-[4/5] overflow-hidden rounded-sm bg-paper shadow-soft"
-              >
-                <img
-                  src={p.src}
-                  alt={p.label}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/40" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-4 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  <span className="eyebrow text-background">{p.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise */}
-      <section id="expertise" className="border-y border-border/60 bg-paper">
-        <div className="container pt-24 pb-12">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <span className="eyebrow text-primary">{t("expertise_eyebrow")}</span>
-              <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
-                <span className="text-ink">{t("expertise_title_1")}</span>{" "}
-                <span className="text-primary">+</span>{" "}
-                <em className="italic text-primary/90">{t("expertise_title_2")}</em>
-              </h2>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-soft">
-                <img src={mtbankHeader} alt="Rebeca presenting at M&T Bank" className="h-full w-full object-cover" />
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2">
-            {projects.map((p) => (
-              <article key={p.client} className="group relative bg-background transition-colors hover:bg-cream">
-                <div className="p-8">
-                  <span className="eyebrow text-primary">{p.client}</span>
-                  <h3 className="display mt-4 text-2xl text-ink md:text-3xl">{p.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-12 flex justify-center">
+      {/* Contact */}
+      <section id="contact" className="container py-16">
+        <span className="text-base">{t("contact_label")}</span>
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-8">
+          <h2 className="display text-4xl text-primary md:text-5xl">{t("contact_headline")}</h2>
+          <div className="flex gap-4">
             <a
               href="https://www.linkedin.com/in/rebecarec/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-background transition-all hover:bg-primary"
+              aria-label="LinkedIn"
+              className="grid h-14 w-14 place-items-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              <Linkedin className="h-4 w-4" />
-              {t("see_more_linkedin")}
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/rebecarec"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="grid h-14 w-14 place-items-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:rebeca.ocb@gmail.com"
+              aria-label="Email Rebeca"
+              className="grid h-14 w-14 place-items-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* How I do it */}
-      <section id="how" className="container py-20">
-        <span className="eyebrow text-accent">{t("how_eyebrow")}</span>
-        <h2 className="display mt-6 max-w-3xl text-5xl text-ink md:text-6xl">
-          {t("how_title_1")} <em className="italic text-primary">{t("how_title_2")}</em> {t("how_title_3")}
-        </h2>
-        <ul className="mt-12 divide-y divide-border border-y border-border">
-          {howIDoIt.map((p) => (
-            <li key={p.n} className="grid grid-cols-12 items-center gap-6 py-5">
-              <span className="display col-span-2 text-lg text-muted-foreground md:col-span-1">{p.n}</span>
-              <h3 className="display col-span-10 text-2xl text-ink md:col-span-3 md:text-3xl">{p.title}</h3>
-              <p className="col-span-12 text-muted-foreground md:col-span-8">{p.desc}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="bg-gradient-sun text-ink">
-        <div className="container grid gap-16 py-20 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <div className="flex items-start justify-between gap-6">
-              <span className="eyebrow text-ink/70">{t("contact_eyebrow")}</span>
-              <LanguageSwitcher variant="contact" />
-            </div>
-            <h2 className="display mt-6 text-balance text-5xl md:text-7xl">
-              {t("contact_title_1")} <em className="italic text-primary">{t("contact_title_2")}</em>.
-            </h2>
-          </div>
-          <div className="flex items-end lg:col-span-4">
-            <div className="flex gap-3">
-              <a
-                href="mailto:rebeca.ocb@gmail.com"
-                aria-label="Email Rebeca"
-                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/rebecarec/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/rebecarec"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="grid h-12 w-12 place-items-center rounded-full border border-ink/30 transition-colors hover:bg-ink hover:text-background"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
+      <footer className="border-t border-border">
+        <div className="container py-4 text-xs">
+          Rebeca Batista {new Date().getFullYear()} ©
         </div>
-        <div className="border-t border-ink/10">
-          <div className="container flex flex-col items-start justify-between gap-3 py-6 text-xs uppercase tracking-widest text-ink/50 md:flex-row md:items-center">
-            <span>© {new Date().getFullYear()} Rebeca Batista</span>
-            <span>{t("footer_role")}</span>
-          </div>
-        </div>
-      </section>
+      </footer>
     </main>
   );
 };
