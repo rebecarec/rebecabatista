@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Fraunces', 'serif'],
-        sans: ['Neutra Text', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Dotum', 'Gulim', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -77,7 +77,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "marquee": "marquee 134s linear infinite",
+        "marquee": "marquee 70s linear infinite",
         "fade-up": "fade-up 0.8s ease-out forwards",
       },
     },
