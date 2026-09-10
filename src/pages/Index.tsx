@@ -166,7 +166,7 @@ const Index = () => {
           </div>
           <div className="justify-self-center lg:justify-self-end">
             <img
-              src={presentation}
+              src={presentation.url}
               alt="Rebeca presenting research findings"
               className="h-full max-h-[420px] w-full rounded-md object-cover"
             />
