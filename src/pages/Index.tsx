@@ -1,7 +1,8 @@
 import { Mail, Linkedin, Github, Menu } from "lucide-react";
-import portrait from "@/assets/rebeca-square.png.asset.json";
-import presentation from "@/assets/mtbank-presentation.jpeg";
-import headshot from "@/assets/rebeca.jpg";
+import portrait from "@/assets/home-portrait.jpg.asset.json";
+import presentation from "@/assets/home-presenting.jpg.asset.json";
+import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
+import groupPhoto from "@/assets/home-group.jpg.asset.json";
 import { useLang } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
