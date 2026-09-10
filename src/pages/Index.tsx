@@ -77,21 +77,26 @@ const Index = () => {
       {/* Hero */}
       <section className="container grid grid-cols-1 items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Photo collage */}
-        <div className="relative mx-auto h-[380px] w-full max-w-[520px] md:h-[480px]">
-          <img
-            src={presentation}
-            alt="Rebeca presenting at M&T Bank"
-            className="absolute left-0 top-[18%] w-[46%] rotate-[-4deg] rounded-md border-[6px] border-white object-cover shadow-soft"
-          />
+        <div className="relative mx-auto h-[420px] w-full max-w-[560px] md:h-[520px]">
           <img
             src={portrait.url}
             alt="Portrait of Rebeca Batista"
-            className="absolute right-[6%] top-0 w-[52%] rotate-[3deg] rounded-md border-[6px] border-white object-cover shadow-soft"
+            className="absolute right-0 top-0 h-[52%] w-[52%] rotate-[2deg] rounded-lg object-cover shadow-soft"
           />
           <img
-            src={headshot}
-            alt="Rebeca Batista"
-            className="absolute bottom-0 left-[4%] w-[40%] rotate-[-2deg] rounded-md border-[6px] border-white object-cover shadow-soft"
+            src={presentation.url}
+            alt="Rebeca presenting research findings"
+            className="absolute left-0 top-[16%] h-[34%] w-[46%] rotate-[-3deg] rounded-lg object-cover shadow-soft"
+          />
+          <img
+            src={greenscreen.url}
+            alt="Rebeca recording in a studio"
+            className="absolute bottom-0 left-0 h-[38%] w-[32%] rotate-[-4deg] rounded-lg object-cover shadow-soft"
+          />
+          <img
+            src={groupPhoto.url}
+            alt="Rebeca with her team"
+            className="absolute bottom-[2%] left-[30%] h-[40%] w-[58%] rotate-[3deg] rounded-lg object-cover shadow-soft"
           />
         </div>
 
