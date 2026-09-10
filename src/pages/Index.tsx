@@ -1,10 +1,10 @@
-import { Mail, Linkedin, Github, Menu } from "lucide-react";
+import { Mail, Linkedin, Github, Menu, Languages } from "lucide-react";
 import portrait from "@/assets/home-portrait.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
 import groupPhoto from "@/assets/home-group.jpg.asset.json";
 import { useLang } from "@/contexts/LanguageContext";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+
 
 const ribbonWords = [
   "MECE Framework", "BCG Growth Share Matrix", "Platform Canvas Framework", "Power BI",
@@ -34,7 +34,7 @@ const Ribbon = () => {
 };
 
 const Index = () => {
-  const { t } = useLang();
+  const { t, lang, setLang } = useLang();
 
   const projects = [
     { client: "M&T Bank", sector: t("sector_finance"), title: t("proj_mt_title"), desc: t("proj_mt_desc") },
@@ -52,18 +52,23 @@ const Index = () => {
             <span className="text-lg text-primary">✵</span>
             <span className="display text-lg text-primary">Rebeca Batista</span>
           </a>
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <a
               href="#story"
               aria-label="Menu"
-              className="grid h-8 w-9 place-items-center rounded-md border border-border text-primary transition-colors hover:bg-secondary"
+              className="grid h-8 w-9 place-items-center rounded-md bg-secondary text-primary transition-colors hover:bg-border/60"
             >
               <Menu className="h-4 w-4" />
             </a>
-            <div className="flex items-center gap-2 rounded-md border border-border px-2.5 py-1.5">
-              <span className="hidden text-xs font-medium text-primary sm:inline">{t("nav_translate")}</span>
-              <LanguageSwitcher variant="nav" />
-            </div>
+            <button
+              type="button"
+              onClick={() => setLang(lang === "en" ? "pt" : "en")}
+              aria-label={t("nav_translate")}
+              className="flex h-8 items-center gap-1.5 rounded-md bg-secondary px-3 text-primary transition-colors hover:bg-border/60"
+            >
+              <Languages className="h-4 w-4" />
+              <span className="text-sm font-medium">{t("nav_translate")}</span>
+            </button>
             <a
               href="#contact"
               className="rounded-md bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
