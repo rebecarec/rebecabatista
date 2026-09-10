@@ -4,7 +4,7 @@ import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
 import groupPhoto from "@/assets/home-group.jpg.asset.json";
 import { useLang } from "@/contexts/LanguageContext";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+
 
 const ribbonWords = [
   "MECE Framework", "BCG Growth Share Matrix", "Platform Canvas Framework", "Power BI",
