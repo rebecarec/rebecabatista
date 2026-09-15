@@ -34,6 +34,12 @@ const Ribbon = () => {
   );
 };
 
+const BrandMark = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-primary">
+    <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.55 4.55l2.1 2.1M17.35 17.35l2.1 2.1M19.45 4.55l-2.1 2.1M6.65 17.35l-2.1 2.1" fill="none" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
 const Index = () => {
   const { t, lang, setLang } = useLang();
 
@@ -50,7 +56,7 @@ const Index = () => {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-xl">
         <nav className="container flex h-14 items-center justify-between">
           <a href="#" className="flex items-center gap-2.5">
-            <span className="text-lg text-primary">✵</span>
+            <BrandMark />
             <span className="display text-lg text-primary">Rebeca Batista</span>
           </a>
           <div className="flex items-center gap-2">
