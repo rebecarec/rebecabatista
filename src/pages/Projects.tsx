@@ -188,7 +188,7 @@ const Projects = () => {
                 <p className="mt-1">No matter how intimidating certain roles within the company might seem, or how unusual the request may sound, clarity creates better work.</p>
               </div>
             </div>
-            <img src={feedImage.url} alt="Rebeca Batista with a colleague at an event" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
+            <img src={feedImage.url} alt="You got this handwritten on grid paper" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
           </article>
 
           {projects.map((project) => (
