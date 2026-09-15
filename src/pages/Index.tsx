@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github, Menu, Languages } from "lucide-react";
+import { Link } from "react-router-dom";
 import portrait from "@/assets/home-portrait.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
@@ -53,13 +54,13 @@ const Index = () => {
             <span className="display text-lg text-primary">Rebeca Batista</span>
           </a>
           <div className="flex items-center gap-2">
-            <a
-              href="#story"
-              aria-label="Menu"
+            <Link
+              to="/projects"
+              aria-label="Projects"
               className="grid h-8 w-9 place-items-center rounded-md bg-secondary text-primary transition-colors hover:bg-border/60"
             >
               <Menu className="h-4 w-4" />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setLang(lang === "en" ? "pt" : "en")}
@@ -136,14 +137,12 @@ const Index = () => {
           ))}
         </div>
         <div className="mt-10 flex justify-center">
-          <a
-            href="https://www.linkedin.com/in/rebecarec/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/projects"
             className="rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             {t("home_more_projects")}
-          </a>
+          </Link>
         </div>
       </section>
 
