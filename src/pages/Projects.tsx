@@ -14,7 +14,7 @@ import { useLang } from "@/contexts/LanguageContext";
 import mtBankImage from "@/assets/projects/project-0.jpg.asset.json";
 import hultImage from "@/assets/projects/project-1.jpg.asset.json";
 import gostaImage from "@/assets/projects/project-2.jpg.asset.json";
-import autodeskImage from "@/assets/projects/project-3.jpg.asset.json";
+import autodeskImage from "@/assets/projects/autodesk-new.jpg.asset.json";
 import feedImage from "@/assets/projects/project-4.jpg.asset.json";
 
 const englishProjects = [
