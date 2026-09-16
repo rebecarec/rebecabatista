@@ -127,7 +127,7 @@ const BrandMark = () => (
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="2"
+      strokeWidth="32.8"
     />
   </svg>
 );
