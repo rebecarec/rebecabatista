@@ -167,9 +167,10 @@ const Projects = () => {
             <span className="display text-xl">Rebeca Batista</span>
           </Link>
           <div className="flex items-center gap-3">
-            <Button asChild variant="secondary" size="icon" className="h-9 w-9">
-              <Link to="/projects" aria-label="Projects"><Menu /></Link>
-            </Button>
+            <NavDropdown
+              buttonClassName="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-primary transition-colors hover:bg-secondary/80"
+              iconClassName="h-5 w-5"
+            />
             <Button
               type="button"
               variant="secondary"
