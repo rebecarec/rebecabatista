@@ -1,5 +1,6 @@
-import { Mail, Linkedin, Github, Menu, Languages } from "lucide-react";
+import { Mail, Linkedin, Github, Languages } from "lucide-react";
 import { Link } from "react-router-dom";
+import NavDropdown from "@/components/NavDropdown";
 import portrait from "@/assets/home-portrait.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
@@ -60,13 +61,7 @@ const Index = () => {
             <span className="display text-lg text-primary">Rebeca Batista</span>
           </a>
           <div className="flex items-center gap-2">
-            <Link
-              to="/projects"
-              aria-label="Projects"
-              className="grid h-8 w-9 place-items-center rounded-md bg-secondary text-primary transition-colors hover:bg-border/60"
-            >
-              <Menu className="h-4 w-4" />
-            </Link>
+            <NavDropdown buttonClassName="grid h-8 w-9 place-items-center rounded-md bg-secondary text-primary transition-colors hover:bg-border/60" />
             <button
               type="button"
               onClick={() => setLang(lang === "en" ? "pt" : "en")}
