@@ -120,8 +120,15 @@ const portugueseFeed = [
 ];
 
 const BrandMark = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-primary">
-    <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.55 4.55l2.1 2.1M17.35 17.35l2.1 2.1M19.45 4.55l-2.1 2.1M6.65 17.35l-2.1 2.1" fill="none" stroke="currentColor" strokeWidth="1.2" />
+  <svg aria-hidden="true" viewBox="0 0 473.26 491.86" className="h-5 w-5 text-primary">
+    <path
+      d="M242.83,1V63m0,328.64v99.21m-155-248H1m471.26,0h-37.2M403,403l-17.54-17.54M408.12,79.52,373.05,114.6M67.26,418.4l70.16-70.16M72.4,74.38,125,127"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    />
   </svg>
 );
 
