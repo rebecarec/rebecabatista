@@ -1,5 +1,6 @@
-import { Mail, Linkedin, Github, Menu, Languages } from "lucide-react";
+import { Mail, Linkedin, Github, Languages } from "lucide-react";
 import { Link } from "react-router-dom";
+import NavDropdown from "@/components/NavDropdown";
 import portrait from "@/assets/home-portrait.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";

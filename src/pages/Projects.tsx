@@ -4,12 +4,11 @@ import {
   Languages,
   Linkedin,
   Mail,
-  Menu,
   Search,
   SlidersHorizontal,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import NavDropdown from "@/components/NavDropdown";
 import { useLang } from "@/contexts/LanguageContext";
 import mtBankImage from "@/assets/projects/project-0.jpg.asset.json";
 import hultImage from "@/assets/projects/hult-cup-new.jpg.asset.json";
