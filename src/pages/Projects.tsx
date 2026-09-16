@@ -83,6 +83,42 @@ const portugueseProjects = [
   },
 ];
 
+const englishFeed = [
+  "Have you ever stopped to think that perhaps the problem isn’t the crazy requests, but rather how you receive them?",
+  "Throughout my career, I’ve often received requests... challenging, to put it mildly, let’s say. But over time I understood that it’s part of the requester’s job to ask. Just as it’s also part of the job of the person receiving the request to direct the requests and give clarity.",
+  "No matter how intimidating some seats are within the company, and you feel you need to say yes to everything that comes your way, to me what you need is:",
+  "- Know how to extract the core of the request that comes to you.",
+  "E.g.: “What do we really want by doing this?”. Once you understand that, you can offer more productive alternatives that the person who made the request might not even know were possible.",
+  "- Know how to signal when something is wrong.",
+  "E.g.: “What you’re asking me goes against what department X gave me as a directive/budget for the project. Are you sure we should move forward this way?”; “If we change it now, the launch deadline will be impacted.” By doing this, you share information people often don’t have and think is simpler than it really is.",
+  "- Know how to explain the chain of events involved in a change of plans.",
+  "E.g.: “I can deliver what you’re asking, but if I do that now, we’ll face impact X and Y.” By sharing this, you expose the impacts of decisions, and you also open the door for the requester to choose what matters most or think with you about how to reduce the impact.",
+  "- Know how to ask for help and delegate tasks (perhaps the hardest one on this list)",
+  "This one is a work in progress… You need to build partnerships within the team with people who can help you, and you NEED to let go of your tasks.",
+  "Be clear about what you need help with, hand over to others something you can explain clearly — and really explain it, correcting 10 times if necessary, but don’t say “it’s faster if I do it myself”.",
+  "Don’t be afraid to delegate your tasks to someone, because your image is at more risk from delaying a delivery than from accepting help.",
+  "Well, the text got a bit long today, huh. I hate long texts on LinkedIn, but I’ve summarized as much as I could, folks.",
+  "Final message: be open to listening and truly willing to collaborate. And don’t forget that, as boring, challenging, and complex as some requests may be, it’s easier to negotiate ways of getting things done than to fight against them.",
+];
+
+const portugueseFeed = [
+  "Você já parou pra pensar que talvez o problema não esteja nas solicitações malucas, mas em como você as recebe?",
+  "Durante a minha carreira, por diversas vezes recebi solicitações... no mínimo desafiadoras, vamos dizer assim. Só que ao longo do tempo eu entendi que faz parte do trabalho de quem pede, pedir. Assim como, também faz parte do trabalho de quem recebe o pedido, direcionar as solicitações e dar clareza.",
+  "Por mais assustadoras que algumas cadeiras sejam dentro da empresa, e você sinta que precisa dizer sim pra tudo o que chega, pra mim o que você precisa é:",
+  "- Saber extrair o core da solicitação que chega pra você.",
+  "Ex.: “O que realmente queremos fazendo isso?”. Entendendo isso, você consegue dar alternativas mais produtivas que talvez quem te fez a solicitação nem soubesse que eram possíveis.",
+  "- Saber sinalizar quando algo está errado.",
+  "Ex.: “O que você está me pedindo vai contra o que a área X me passou como diretriz/verba pro projeto. Tem certeza de que devemos seguir assim?”; “Se mudarmos agora, o prazo de lançamento será impactado”. Fazendo isso, você compartilha uma informação que muitas vezes as pessoas nem sabem e acham que é mais simples do que realmente é.",
+  "- Saber explicar a cadeia de eventos que envolve uma mudança no planejamento.",
+  "Ex.: “Consigo atender o que você me pede, mas se eu fizer isso nesse momento, vamos ter impacto X e Y”. Compartilhando isso, você expõe os impactos das decisões, e também abre pra que o outro solicitante escolha o que é mais importante ou pense com você em como reduzir o impacto.",
+  "- Saber pedir ajuda e delegar tarefas (talvez o mais difícil dessa lista)",
+  "Aqui é meio que uma construção… Você precisa construir parcerias no time que vão saber te ajudar, e você PRECISA largar o osso das suas atividades.",
+  "Seja claro sobre o que você precisa de ajuda, passe pros outros algo que você consiga explicar claramente, e realmente explique, se for necessário, corrija 10 vezes, mas não fale “é mais rápido se eu fizer sozinho”.",
+  "Não tenha medo de delegar suas tarefas pra alguém, porque a sua imagem corre mais risco atrasando uma entrega do que aceitando ajuda.",
+  "Bom, ficou meio longo o texto hoje, né. Odeio texto longo no LinkedIn, mas sintetizei em tudo o que deu, rede.",
+  "Mensagem final: esteja aberto a ouvir e realmente disposto a colaborar. E não esqueça que, por mais chatas, desafiadoras e complexas que algumas solicitações sejam, é mais fácil negociar formas de fazer do que lutar contra elas.",
+];
+
 const BrandMark = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-primary">
     <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.55 4.55l2.1 2.1M17.35 17.35l2.1 2.1M19.45 4.55l-2.1 2.1M6.65 17.35l-2.1 2.1" fill="none" stroke="currentColor" strokeWidth="1.2" />
@@ -183,9 +219,9 @@ const Projects = () => {
               <p className="text-lg">{labels.feed}</p>
               <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
               <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
-                <p>Have you ever stopped to think that perhaps the problem isn’t the crazy demands, but rather how you handle receiving them? ■</p>
-                <p className="mt-6">Throughout my career, I’ve often received requests to put it mildly, out of touch. But over time, I realized that making requests is simply part of the requester’s job. Just as providing clear direction and instructions is part of the job for the person receiving the request.</p>
-                <p className="mt-1">No matter how intimidating certain roles within the company might seem, or how unusual the request may sound, clarity creates better work.</p>
+                {(lang === "en" ? englishFeed : portugueseFeed).map((paragraph, index) => (
+                  <p key={index} className={index === 0 ? "" : "mt-4"}>{paragraph}</p>
+                ))}
               </div>
             </div>
             <img src={feedImage.url} alt="You got this handwritten on grid paper" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
