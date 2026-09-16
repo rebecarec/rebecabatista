@@ -7,6 +7,7 @@ import {
   Search,
   SlidersHorizontal,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import NavDropdown from "@/components/NavDropdown";
 import { useLang } from "@/contexts/LanguageContext";
