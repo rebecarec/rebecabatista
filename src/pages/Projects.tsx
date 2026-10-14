@@ -247,6 +247,19 @@ const Projects = () => {
         <div className="mt-4 space-y-4">
           <article className="grid min-h-[350px] overflow-hidden rounded-lg border border-accent bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
             <div className="min-w-0 pr-1">
+              <p className="text-lg">{labels.feedNew}</p>
+              <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
+              <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
+                {(lang === "en" ? englishDados : portugueseDados).map((paragraph, index) => (
+                  <p key={index} className={index === 0 ? "" : "mt-4"}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+            <img src={dadosImage.url} alt="Two colleagues reviewing a project dashboard on a computer screen" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
+          </article>
+
+          <article className="grid min-h-[350px] overflow-hidden rounded-lg border border-accent bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
+            <div className="min-w-0 pr-1">
               <p className="text-lg">{labels.feed}</p>
               <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
               <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
