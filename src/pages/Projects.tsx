@@ -16,6 +16,7 @@ import hultImage from "@/assets/projects/hult-cup-new.jpg.asset.json";
 import gostaImage from "@/assets/projects/project-2.jpg.asset.json";
 import autodeskImage from "@/assets/projects/autodesk-new.jpg.asset.json";
 import feedImage from "@/assets/projects/project-4.jpg.asset.json";
+import dadosImage from "@/assets/projects/dados-new.jpg.asset.json";
 
 const englishProjects = [
   {
@@ -119,6 +120,26 @@ const portugueseFeed = [
   "Mensagem final: esteja aberto a ouvir e realmente disposto a colaborar. E não esqueça que, por mais chatas, desafiadoras e complexas que algumas solicitações sejam, é mais fácil negociar formas de fazer do que lutar contra elas.",
 ];
 
+const englishDados = [
+  "The dashboard shows volume, and the network even seems to hold a large market share. But when you look closer, the numbers don’t add up. So what do you do when the data every company considers so valuable doesn’t match the reality of your area?",
+  "First, we need to analyze how that information was collected. Every area of the organization has different metrics, and for other departments the data may be perfectly adequate.",
+  "Knowing who built the strategy behind a database, you can align expectations on what you can (and can’t) extract from it, adapting your analysis to the information available. From there, the way forward isn’t to discard everything that isn’t 100% suited to your area, but to fill the gaps intelligently and translate that combination into what you actually need.",
+  "Let’s take an example…",
+  "The number of stores doesn’t tell you much if you need to know the profitability of a given region. BUUUT it can help you understand how much you need to invest to serve 100% of that market. Knowing what that coverage would cost in investment, you can assess real profitability and dig into what actually generates revenue and good ROI in this scenario.",
+  "In my view, building a heavy data structure that collects as much information as possible isn’t always the way to go. But making good use of what’s already at hand — that is essential for developing insights that create real value for the business.",
+  "And where you are — how do you deal with it when the company’s “official” metric doesn’t speak the same language as the reality of your area?",
+];
+
+const portugueseDados = [
+  "O dashboard indica volume, e a rede até parece ter uma grande participação. Mas quando você olha de perto, os números não fecham. E então, o que fazer quando os dados que toda empresa considera de tanto valor não batem com a realidade da sua área?",
+  "Primeiro, a gente precisa analisar como essa informação foi coletada. Cada área da organização tem métricas diferentes, e talvez para outros setores os dados estejam completamente adequados.",
+  "Sabendo quem montou a estratégia de uma base de dados, você consegue alinhar expectativas sobre o que dá (e o que não dá) para extrair dela, adaptando sua análise às informações disponíveis. A partir daí, o caminho não é descartar tudo o que não está 100% adaptado à sua área, mas agregar o que falta de forma inteligente e traduzir essa combinação para a sua necessidade.",
+  "Vamos de exemplo…",
+  "A quantidade de lojas não te diz muita coisa se você precisa saber a rentabilidade de uma determinada região. MASSSS pode te ajudar a entender o quanto você precisa investir para atender 100% desse mercado. Sabendo quanto custaria essa cobertura em investimentos, você consegue avaliar a rentabilidade real e aprofundar no que realmente gera receita e bom ROI nesse cenário.",
+  "A meu ver, criar uma estrutura de dados pesada coletando o máximo de informações possíveis nem sempre é o caminho. Mas fazer bom uso do que se tem à mão, sim, é essencial para desenvolver insights que gerem valor de verdade para o negócio.",
+  "E por aí, como vocês lidam quando a métrica \"oficial\" da empresa não conversa com a realidade da sua área?",
+];
+
 const BrandMark = () => (
   <svg aria-hidden="true" viewBox="0 0 473.26 491.86" className="h-5 w-5 text-primary">
     <path
@@ -146,6 +167,7 @@ const Projects = () => {
         type: "Type",
         search: "Search for keywords...",
         feed: "FEED · 08/2026",
+        feedNew: "FEED · 10/2026",
         feedTitle: "LinkedIn Content",
         contact: "Contact",
         headline: "Let’s work together!",
@@ -160,6 +182,7 @@ const Projects = () => {
         type: "Tipo",
         search: "Busque por palavras-chave...",
         feed: "FEED · 08/2026",
+        feedNew: "FEED · 10/2026",
         feedTitle: "Conteúdo no LinkedIn",
         contact: "Contato",
         headline: "Vamos trabalhar juntos!",
