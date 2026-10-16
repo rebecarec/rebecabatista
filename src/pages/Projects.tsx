@@ -24,7 +24,7 @@ import dadosImage from "@/assets/projects/dados-new.jpg.asset.json";
 const englishProjects = [
   {
     meta: "PROJECT · 04/2026 · M&T Bank · Finance",
-    industry: "Finance",
+    industry: "finance",
     date: "04/2026",
     title: "Engaging gig workers with M&T capabilities",
     description:
@@ -34,7 +34,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 03/2026 · Gosta Labs · Healthcare",
-    industry: "Healthcare",
+    industry: "healthcare",
     date: "03/2026",
     title: "North-America GTM Strategy",
     description:
@@ -44,7 +44,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 01/2026 · Hult Cup · Technology",
-    industry: "Technology",
+    industry: "technology",
     date: "01/2026",
     title: "Engaging multiple campus over summer",
     description:
@@ -54,7 +54,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 11/2025 · Autodesk · Technology",
-    industry: "Technology",
+    industry: "technology",
     date: "11/2025",
     title: "Software optimization for data-centers",
     description:
@@ -68,7 +68,6 @@ const portugueseProjects = [
   {
     ...englishProjects[0],
     meta: "PROJETO · 04/2026 · M&T Bank · Finanças",
-    industry: "Finanças",
     title: "Engajando trabalhadores gig com as capacidades do M&T",
     description:
       "Nos EUA, projeta-se que até 2028 os trabalhadores gig representarão mais da metade da população. Neste projeto, desenvolvi uma proposta para ajudar o M&T Bank a otimizar seus serviços para essa população com necessidades tão específicas.",
@@ -76,7 +75,6 @@ const portugueseProjects = [
   {
     ...englishProjects[1],
     meta: "PROJETO · 03/2026 · Gosta Labs · Saúde",
-    industry: "Saúde",
     title: "Estratégia de entrada na América do Norte",
     description:
       "Uma empresa em crescimento de IA para saúde, presente na Europa, Ásia e Oceania, queria entender melhor o cenário da América do Norte. Analisei regulação, viabilidade financeira, estratégia de GTM e caminhos de acesso ao mercado.",
@@ -84,7 +82,6 @@ const portugueseProjects = [
   {
     ...englishProjects[2],
     meta: "PROJETO · 01/2026 · Hult Cup · Tecnologia",
-    industry: "Tecnologia",
     title: "Engajando múltiplos campi durante o verão",
     description:
       "Com campi ao redor do mundo, o desafio foi desenvolver uma plataforma que mantivesse os alunos engajados no verão, envolvesse a comunidade com a Copa do Mundo e promovesse uma competição saudável entre os campi.",
@@ -92,7 +89,6 @@ const portugueseProjects = [
   {
     ...englishProjects[3],
     meta: "PROJETO · 11/2025 · Autodesk · Tecnologia",
-    industry: "Tecnologia",
     title: "Otimização de software para data centers",
     description:
       "Quando os canteiros de obras têm novas necessidades, quão bem uma ferramenta líder consegue evoluir? Aqui, pesquisei o cenário atual dos data centers e também a projeção de toda a indústria. Ao final, construí uma melhoria de software para a Autodesk.",
@@ -105,8 +101,12 @@ export const FEED_DATES = {
 } as const;
 
 export const projectDates = englishProjects.map((project) => project.date);
-export const englishIndustries = englishProjects.map((project) => project.industry);
-export const portugueseIndustries = portugueseProjects.map((project) => project.industry);
+const INDUSTRY_NAMES: Record<string, Record<string, string>> = {
+  en: { finance: "Finance", healthcare: "Healthcare", technology: "Technology" },
+  pt: { finance: "Finanças", healthcare: "Saúde", technology: "Tecnologia" },
+};
+
+export const projectIndustryKeys = englishProjects.map((project) => project.industry);
 
 const englishFeed = [
   "Have you ever stopped to think that perhaps the problem isn’t the crazy requests, but rather how you receive them?",
@@ -279,7 +279,11 @@ const Projects = () => {
     ...feedCards.map((feed) => feed.date),
   ]);
 
-  const allIndustries = uniqueIndustries(projects.map((project) => project.industry));
+  const dateOptions = allDates.map((date) => ({ value: date, label: date }));
+
+  const industryOptions = uniqueIndustries(
+    projects.map((project) => project.industry),
+  ).map((key) => ({ value: key, label: INDUSTRY_NAMES[lang][key] ?? key }));
 
   const visibleFeeds = feedCards.filter(
     (feed) =>
@@ -341,15 +345,19 @@ const Projects = () => {
             <FilterDropdown
               label={labels.date}
               allLabel={labels.allDates}
-              options={allDates}
+              options={dateOptions}
               selected={selectedDate}
               onSelect={setSelectedDate}
               icon={<SlidersHorizontal />}
             />
             <FilterDropdown
-              label={labels.industry}
+              label={
+                selectedIndustry
+                  ? INDUSTRY_NAMES[lang][selectedIndustry] ?? selectedIndustry
+                  : labels.industry
+              }
               allLabel={labels.allIndustries}
-              options={allIndustries}
+              options={industryOptions}
               selected={selectedIndustry}
               onSelect={setSelectedIndustry}
               icon={<SlidersHorizontal />}
