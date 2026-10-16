@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
-  Check,
-  ChevronDown,
   FileText,
   Github,
   Languages,
@@ -14,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import NavDropdown from "@/components/NavDropdown";
+import FilterDropdown from "@/components/FilterDropdown";
 import { useLang } from "@/contexts/LanguageContext";
 import mtBankImage from "@/assets/projects/project-0.jpg.asset.json";
 import hultImage from "@/assets/projects/hult-cup-new.jpg.asset.json";
@@ -25,6 +24,7 @@ import dadosImage from "@/assets/projects/dados-new.jpg.asset.json";
 const englishProjects = [
   {
     meta: "PROJECT · 04/2026 · M&T Bank · Finance",
+    industry: "finance",
     date: "04/2026",
     title: "Engaging gig workers with M&T capabilities",
     description:
@@ -34,6 +34,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 03/2026 · Gosta Labs · Healthcare",
+    industry: "healthcare",
     date: "03/2026",
     title: "North-America GTM Strategy",
     description:
@@ -43,6 +44,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 01/2026 · Hult Cup · Technology",
+    industry: "technology",
     date: "01/2026",
     title: "Engaging multiple campus over summer",
     description:
@@ -52,6 +54,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 11/2025 · Autodesk · Technology",
+    industry: "technology",
     date: "11/2025",
     title: "Software optimization for data-centers",
     description:
@@ -98,6 +101,12 @@ export const FEED_DATES = {
 } as const;
 
 export const projectDates = englishProjects.map((project) => project.date);
+export const INDUSTRY_NAMES: Record<string, Record<string, string>> = {
+  en: { finance: "Finance", healthcare: "Healthcare", technology: "Technology" },
+  pt: { finance: "Finanças", healthcare: "Saúde", technology: "Tecnologia" },
+};
+
+export const projectIndustryKeys = englishProjects.map((project) => project.industry);
 
 const englishFeed = [
   "Have you ever stopped to think that perhaps the problem isn’t the crazy requests, but rather how you receive them?",
@@ -184,6 +193,12 @@ export const matchesKeyword = (query: string, parts: string[]) => {
 export const matchesDate = (date: string, selected: string) =>
   selected === "" || date === selected;
 
+export const matchesIndustry = (industry: string, selected: string) =>
+  selected === "" || industry === selected;
+
+export const uniqueIndustries = (industries: string[]) =>
+  Array.from(new Set(industries.filter(Boolean))).sort((a, b) => a.localeCompare(b));
+
 export const uniqueDates = (dates: string[]) =>
   Array.from(new Set(dates)).sort((a, b) => {
     const [monthA, yearA] = a.split("/").map(Number);
@@ -210,8 +225,10 @@ const Projects = () => {
         contact: "Contact",
         headline: "Let’s work together!",
         noResults: "No results for",
+        noFilters: "No results for these filters.",
         clear: "Clear search",
         allDates: "All dates",
+        allIndustries: "All industries",
       }
     : {
         title: "Quer conhecer meu trabalho?",
@@ -228,35 +245,21 @@ const Projects = () => {
         contact: "Contato",
         headline: "Vamos trabalhar juntos!",
         noResults: "Nenhum resultado para",
+        noFilters: "Nenhum resultado para esses filtros.",
         clear: "Limpar busca",
         allDates: "Todas as datas",
+        allIndustries: "Todas as indústrias",
       };
 
   const [query, setQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const [dateOpen, setDateOpen] = useState(false);
-  const dateRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!dateOpen) return;
-    const onPointerDown = (event: MouseEvent) => {
-      if (dateRef.current && !dateRef.current.contains(event.target as Node)) setDateOpen(false);
-    };
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setDateOpen(false);
-    };
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [dateOpen]);
+  const [selectedIndustry, setSelectedIndustry] = useState("");
 
   const feedCards = [
     {
       key: "feed-10-2026",
       date: FEED_DATES.dados,
+      industry: "",
       meta: labels.feedNew,
       image: dadosImage.url,
       alt: "Two colleagues reviewing a project dashboard on a computer screen",
@@ -265,6 +268,7 @@ const Projects = () => {
     {
       key: "feed-08-2026",
       date: FEED_DATES.original,
+      industry: "",
       meta: labels.feed,
       image: feedImage.url,
       alt: "You got this handwritten on grid paper",
@@ -277,15 +281,23 @@ const Projects = () => {
     ...feedCards.map((feed) => feed.date),
   ]);
 
+  const dateOptions = allDates.map((date) => ({ value: date, label: date }));
+
+  const industryOptions = uniqueIndustries(
+    projects.map((project) => project.industry),
+  ).map((key) => ({ value: key, label: INDUSTRY_NAMES[lang][key] ?? key }));
+
   const visibleFeeds = feedCards.filter(
     (feed) =>
       matchesDate(feed.date, selectedDate) &&
+      matchesIndustry(feed.industry, selectedIndustry) &&
       matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
   );
 
   const visibleProjects = projects.filter(
     (project) =>
       matchesDate(project.date, selectedDate) &&
+      matchesIndustry(project.industry, selectedIndustry) &&
       matchesKeyword(query, [project.meta, project.title, project.description]),
   );
 
@@ -332,49 +344,26 @@ const Projects = () => {
       <section className="mx-auto max-w-[1325px] px-6 py-4 md:px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-3">
-            <div ref={dateRef} className="relative">
-              <Button
-                type="button"
-                variant={selectedDate ? "default" : "secondary"}
-                size="sm"
-                aria-haspopup="true"
-                aria-expanded={dateOpen}
-                onClick={() => setDateOpen((open) => !open)}
-              >
-                <SlidersHorizontal />
-                {selectedDate || labels.date}
-                <ChevronDown className="h-3.5 w-3.5" />
-              </Button>
-              {dateOpen && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-md border border-border bg-background py-1 shadow-soft">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedDate("");
-                      setDateOpen(false);
-                    }}
-                    className={`block w-full px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === "" ? "bg-secondary font-medium text-primary" : "text-primary"}`}
-                  >
-                    {labels.allDates}
-                  </button>
-                  {allDates.map((date) => (
-                    <button
-                      key={date}
-                      type="button"
-                      onClick={() => {
-                        setSelectedDate(date);
-                        setDateOpen(false);
-                      }}
-                      className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === date ? "bg-secondary font-medium text-primary" : "text-primary"}`}
-                    >
-                      <span>{date}</span>
-                      {selectedDate === date && <Check className="h-3.5 w-3.5" />}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            <Button variant="secondary" size="sm"><SlidersHorizontal />{labels.industry}</Button>
+            <FilterDropdown
+              label={labels.date}
+              allLabel={labels.allDates}
+              options={dateOptions}
+              selected={selectedDate}
+              onSelect={setSelectedDate}
+              icon={<SlidersHorizontal />}
+            />
+            <FilterDropdown
+              label={
+                selectedIndustry
+                  ? INDUSTRY_NAMES[lang][selectedIndustry] ?? selectedIndustry
+                  : labels.industry
+              }
+              allLabel={labels.allIndustries}
+              options={industryOptions}
+              selected={selectedIndustry}
+              onSelect={setSelectedIndustry}
+              icon={<SlidersHorizontal />}
+            />
             <Button variant="secondary" size="sm"><FileText />{labels.type}</Button>
           </div>
           <label className="flex h-9 w-full items-center gap-3 rounded-lg border border-secondary bg-background px-3 text-foreground md:w-[296px]">
@@ -430,7 +419,9 @@ const Projects = () => {
           {!hasResults && (
             <div className="flex min-h-[160px] flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-secondary bg-card p-8 text-center">
               <p className="text-lg text-foreground">
-                {labels.noResults} “{query.trim()}”.
+                {query.trim() !== ""
+                  ? `${labels.noResults} “${query.trim()}”.`
+                  : labels.noFilters}
               </p>
               <Button variant="secondary" size="sm" onClick={() => setQuery("")}>
                 <X />
@@ -440,6 +431,12 @@ const Projects = () => {
                 <Button variant="secondary" size="sm" onClick={() => setSelectedDate("")}>
                   <X />
                   <span>{labels.allDates}</span>
+                </Button>
+              )}
+              {selectedIndustry !== "" && (
+                <Button variant="secondary" size="sm" onClick={() => setSelectedIndustry("")}>
+                  <X />
+                  <span>{labels.allIndustries}</span>
                 </Button>
               )}
             </div>

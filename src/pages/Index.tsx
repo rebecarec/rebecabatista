@@ -1,10 +1,11 @@
 import { Mail, Linkedin, Github, Languages } from "lucide-react";
 import { Link } from "react-router-dom";
 import NavDropdown from "@/components/NavDropdown";
-import portrait from "@/assets/home-portrait.jpg.asset.json";
+import headshot from "@/assets/home-headshot.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
-import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
-import groupPhoto from "@/assets/home-group.jpg.asset.json";
+import outdoors from "@/assets/home-outdoors.jpg.asset.json";
+import podium from "@/assets/home-podium.jpg.asset.json";
+import team from "@/assets/home-team.jpg.asset.json";
 import storyVideo from "@/assets/home-story.mp4.asset.json";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -92,27 +93,35 @@ const Index = () => {
       {/* Hero */}
       <section className="container grid grid-cols-1 items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Photo collage */}
-        <div className="relative mx-auto h-[420px] w-full max-w-[560px] md:h-[520px]">
-          <img
-            src={portrait.url}
-            alt="Portrait of Rebeca Batista"
-            className="absolute right-0 top-0 h-[52%] w-[52%] rotate-[2deg] rounded-lg object-cover shadow-soft"
-          />
-          <img
-            src={presentation.url}
-            alt="Rebeca presenting research findings"
-            className="absolute left-0 top-[16%] h-[34%] w-[46%] rotate-[-3deg] rounded-lg object-cover shadow-soft"
-          />
-          <img
-            src={greenscreen.url}
-            alt="Rebeca recording in a studio"
-            className="absolute bottom-0 left-0 h-[38%] w-[32%] rotate-[-4deg] rounded-lg object-cover shadow-soft"
-          />
-          <img
-            src={groupPhoto.url}
-            alt="Rebeca with her team"
-            className="absolute bottom-[2%] left-[30%] h-[40%] w-[58%] rotate-[3deg] rounded-lg object-cover shadow-soft"
-          />
+        <div className="group relative mx-auto h-[420px] w-full max-w-[560px] md:h-[520px]">
+          <div className="absolute right-0 top-0 h-[52%] w-[52%] rotate-[2deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+            <img
+              src={headshot.url}
+              alt="Portrait of Rebeca Batista"
+              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+            />
+          </div>
+          <div className="absolute left-0 top-[16%] h-[34%] w-[46%] rotate-[-3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+            <img
+              src={outdoors.url}
+              alt="Rebeca with colleagues outdoors"
+              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+            />
+          </div>
+          <div className="absolute bottom-0 left-0 h-[38%] w-[32%] rotate-[-4deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+            <img
+              src={podium.url}
+              alt="Rebeca presenting at a podium"
+              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+            />
+          </div>
+          <div className="absolute bottom-[2%] left-[30%] h-[40%] w-[58%] rotate-[3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+            <img
+              src={team.url}
+              alt="Rebeca with her team"
+              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+            />
+          </div>
         </div>
 
         {/* Text */}
