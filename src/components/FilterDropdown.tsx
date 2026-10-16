@@ -54,7 +54,7 @@ const FilterDropdown = ({
         onClick={() => setOpen((value) => !value)}
       >
         {icon}
-        {selected || label}
+        {options.find((option) => option.value === selected)?.label ?? label}
         <ChevronDown className="h-3.5 w-3.5" />
       </Button>
       {open && (

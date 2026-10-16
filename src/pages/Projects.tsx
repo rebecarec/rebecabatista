@@ -101,7 +101,7 @@ export const FEED_DATES = {
 } as const;
 
 export const projectDates = englishProjects.map((project) => project.date);
-const INDUSTRY_NAMES: Record<string, Record<string, string>> = {
+export const INDUSTRY_NAMES: Record<string, Record<string, string>> = {
   en: { finance: "Finance", healthcare: "Healthcare", technology: "Technology" },
   pt: { finance: "Finanças", healthcare: "Saúde", technology: "Tecnologia" },
 };
