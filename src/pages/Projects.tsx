@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FileText,
   Github,
@@ -6,6 +7,7 @@ import {
   Mail,
   Search,
   SlidersHorizontal,
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
