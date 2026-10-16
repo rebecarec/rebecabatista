@@ -2,10 +2,15 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+interface FilterOption {
+  value: string;
+  label: string;
+}
+
 interface FilterDropdownProps {
   label: string;
   allLabel: string;
-  options: string[];
+  options: FilterOption[];
   selected: string;
   onSelect: (value: string) => void;
   icon?: ReactNode;
@@ -66,16 +71,16 @@ const FilterDropdown = ({
           </button>
           {options.map((option) => (
             <button
-              key={option}
+              key={option.value}
               type="button"
               onClick={() => {
-                onSelect(option);
+                onSelect(option.value);
                 setOpen(false);
               }}
-              className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selected === option ? "bg-secondary font-medium text-primary" : "text-primary"}`}
+              className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selected === option.value ? "bg-secondary font-medium text-primary" : "text-primary"}`}
             >
-              <span>{option}</span>
-              {selected === option && <Check className="h-3.5 w-3.5" />}
+              <span>{option.label}</span>
+              {selected === option.value && <Check className="h-3.5 w-3.5" />}
             </button>
           ))}
         </div>
