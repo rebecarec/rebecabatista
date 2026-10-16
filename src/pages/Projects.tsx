@@ -284,7 +284,7 @@ const Projects = () => {
           <label className="flex h-9 w-full items-center gap-3 rounded-lg border border-secondary bg-background px-3 text-foreground md:w-[296px]">
             <Search className="h-4 w-4" aria-hidden="true" />
             <input
-              type="search"
+              type="text"
               aria-label={labels.search}
               placeholder={labels.search}
               value={query}
