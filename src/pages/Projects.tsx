@@ -225,6 +225,7 @@ const Projects = () => {
         contact: "Contact",
         headline: "Let’s work together!",
         noResults: "No results for",
+        noFilters: "No results for these filters.",
         clear: "Clear search",
         allDates: "All dates",
         allIndustries: "All industries",
@@ -244,6 +245,7 @@ const Projects = () => {
         contact: "Contato",
         headline: "Vamos trabalhar juntos!",
         noResults: "Nenhum resultado para",
+        noFilters: "Nenhum resultado para esses filtros.",
         clear: "Limpar busca",
         allDates: "Todas as datas",
         allIndustries: "Todas as indústrias",
@@ -417,7 +419,9 @@ const Projects = () => {
           {!hasResults && (
             <div className="flex min-h-[160px] flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-secondary bg-card p-8 text-center">
               <p className="text-lg text-foreground">
-                {labels.noResults} “{query.trim()}”.
+                {query.trim() !== ""
+                  ? `${labels.noResults} “${query.trim()}”.`
+                  : labels.noFilters}
               </p>
               <Button variant="secondary" size="sm" onClick={() => setQuery("")}>
                 <X />
