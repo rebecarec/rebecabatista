@@ -227,6 +227,7 @@ const Projects = () => {
         noResults: "No results for",
         clear: "Clear search",
         allDates: "All dates",
+        allIndustries: "All industries",
       }
     : {
         title: "Quer conhecer meu trabalho?",
@@ -245,33 +246,18 @@ const Projects = () => {
         noResults: "Nenhum resultado para",
         clear: "Limpar busca",
         allDates: "Todas as datas",
+        allIndustries: "Todas as indústrias",
       };
 
   const [query, setQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const [dateOpen, setDateOpen] = useState(false);
-  const dateRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!dateOpen) return;
-    const onPointerDown = (event: MouseEvent) => {
-      if (dateRef.current && !dateRef.current.contains(event.target as Node)) setDateOpen(false);
-    };
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setDateOpen(false);
-    };
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [dateOpen]);
+  const [selectedIndustry, setSelectedIndustry] = useState("");
 
   const feedCards = [
     {
       key: "feed-10-2026",
       date: FEED_DATES.dados,
+      industry: "",
       meta: labels.feedNew,
       image: dadosImage.url,
       alt: "Two colleagues reviewing a project dashboard on a computer screen",
@@ -280,6 +266,7 @@ const Projects = () => {
     {
       key: "feed-08-2026",
       date: FEED_DATES.original,
+      industry: "",
       meta: labels.feed,
       image: feedImage.url,
       alt: "You got this handwritten on grid paper",
@@ -292,15 +279,19 @@ const Projects = () => {
     ...feedCards.map((feed) => feed.date),
   ]);
 
+  const allIndustries = uniqueIndustries(projects.map((project) => project.industry));
+
   const visibleFeeds = feedCards.filter(
     (feed) =>
       matchesDate(feed.date, selectedDate) &&
+      matchesIndustry(feed.industry, selectedIndustry) &&
       matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
   );
 
   const visibleProjects = projects.filter(
     (project) =>
       matchesDate(project.date, selectedDate) &&
+      matchesIndustry(project.industry, selectedIndustry) &&
       matchesKeyword(query, [project.meta, project.title, project.description]),
   );
 
@@ -347,49 +338,22 @@ const Projects = () => {
       <section className="mx-auto max-w-[1325px] px-6 py-4 md:px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-3">
-            <div ref={dateRef} className="relative">
-              <Button
-                type="button"
-                variant={selectedDate ? "default" : "secondary"}
-                size="sm"
-                aria-haspopup="true"
-                aria-expanded={dateOpen}
-                onClick={() => setDateOpen((open) => !open)}
-              >
-                <SlidersHorizontal />
-                {selectedDate || labels.date}
-                <ChevronDown className="h-3.5 w-3.5" />
-              </Button>
-              {dateOpen && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-md border border-border bg-background py-1 shadow-soft">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedDate("");
-                      setDateOpen(false);
-                    }}
-                    className={`block w-full px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === "" ? "bg-secondary font-medium text-primary" : "text-primary"}`}
-                  >
-                    {labels.allDates}
-                  </button>
-                  {allDates.map((date) => (
-                    <button
-                      key={date}
-                      type="button"
-                      onClick={() => {
-                        setSelectedDate(date);
-                        setDateOpen(false);
-                      }}
-                      className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === date ? "bg-secondary font-medium text-primary" : "text-primary"}`}
-                    >
-                      <span>{date}</span>
-                      {selectedDate === date && <Check className="h-3.5 w-3.5" />}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            <Button variant="secondary" size="sm"><SlidersHorizontal />{labels.industry}</Button>
+            <FilterDropdown
+              label={labels.date}
+              allLabel={labels.allDates}
+              options={allDates}
+              selected={selectedDate}
+              onSelect={setSelectedDate}
+              icon={<SlidersHorizontal />}
+            />
+            <FilterDropdown
+              label={labels.industry}
+              allLabel={labels.allIndustries}
+              options={allIndustries}
+              selected={selectedIndustry}
+              onSelect={setSelectedIndustry}
+              icon={<SlidersHorizontal />}
+            />
             <Button variant="secondary" size="sm"><FileText />{labels.type}</Button>
           </div>
           <label className="flex h-9 w-full items-center gap-3 rounded-lg border border-secondary bg-background px-3 text-foreground md:w-[296px]">
@@ -455,6 +419,12 @@ const Projects = () => {
                 <Button variant="secondary" size="sm" onClick={() => setSelectedDate("")}>
                   <X />
                   <span>{labels.allDates}</span>
+                </Button>
+              )}
+              {selectedIndustry !== "" && (
+                <Button variant="secondary" size="sm" onClick={() => setSelectedIndustry("")}>
+                  <X />
+                  <span>{labels.allIndustries}</span>
                 </Button>
               )}
             </div>
