@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  Check,
+  ChevronDown,
   FileText,
   Github,
   Languages,
@@ -23,6 +25,7 @@ import dadosImage from "@/assets/projects/dados-new.jpg.asset.json";
 const englishProjects = [
   {
     meta: "PROJECT · 04/2026 · M&T Bank · Finance",
+    date: "04/2026",
     title: "Engaging gig workers with M&T capabilities",
     description:
       "In the U.S., it is projected that by 2028, the population of gig workers will be more than half of the population. On this project, I worked on a proposal to help M&T Bank optimize its services to this population with such specific needs.",
@@ -31,6 +34,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 03/2026 · Gosta Labs · Healthcare",
+    date: "03/2026",
     title: "North-America GTM Strategy",
     description:
       "A growing healthcare AI company with a footprint in Europe, Asia, and Oceania wanted to understand more about the North America scenario. On this project, I worked on analyzing regulation, financial viability, GTM strategy, and market access paths.",
@@ -39,6 +43,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 01/2026 · Hult Cup · Technology",
+    date: "01/2026",
     title: "Engaging multiple campus over summer",
     description:
       "With campuses around the globe, the challenge here was to develop a platform that would keep students engaged over summer, engage the community with the World Cup, and promote a friendly competition between campuses.",
@@ -47,6 +52,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 11/2025 · Autodesk · Technology",
+    date: "11/2025",
     title: "Software optimization for data-centers",
     description:
       "When construction sites have new needs, how effectively can a leading tool grow? Here, I worked researching not only the current scenario of data-centers, but also the forecast of the whole industry. At the end, building a software improvement for Autodesk.",
@@ -85,6 +91,13 @@ const portugueseProjects = [
       "Quando os canteiros de obras têm novas necessidades, quão bem uma ferramenta líder consegue evoluir? Aqui, pesquisei o cenário atual dos data centers e também a projeção de toda a indústria. Ao final, construí uma melhoria de software para a Autodesk.",
   },
 ];
+
+export const FEED_DATES = {
+  dados: "10/2026",
+  original: "08/2026",
+} as const;
+
+export const projectDates = englishProjects.map((project) => project.date);
 
 const englishFeed = [
   "Have you ever stopped to think that perhaps the problem isn’t the crazy requests, but rather how you receive them?",
@@ -167,6 +180,16 @@ export const matchesKeyword = (query: string, parts: string[]) => {
   const haystack = normalizeText(parts.join(" "));
   return terms.every((term) => haystack.includes(term));
 };
+
+export const matchesDate = (date: string, selected: string) =>
+  selected === "" || date === selected;
+
+export const uniqueDates = (dates: string[]) =>
+  Array.from(new Set(dates)).sort((a, b) => {
+    const [monthA, yearA] = a.split("/").map(Number);
+    const [monthB, yearB] = b.split("/").map(Number);
+    return yearB - yearA || monthB - monthA;
+  });
 
 const Projects = () => {
   const { lang, setLang } = useLang();
