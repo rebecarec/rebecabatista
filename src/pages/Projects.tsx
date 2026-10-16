@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  Check,
+  ChevronDown,
   FileText,
   Github,
   Languages,
@@ -23,6 +25,7 @@ import dadosImage from "@/assets/projects/dados-new.jpg.asset.json";
 const englishProjects = [
   {
     meta: "PROJECT · 04/2026 · M&T Bank · Finance",
+    date: "04/2026",
     title: "Engaging gig workers with M&T capabilities",
     description:
       "In the U.S., it is projected that by 2028, the population of gig workers will be more than half of the population. On this project, I worked on a proposal to help M&T Bank optimize its services to this population with such specific needs.",
@@ -31,6 +34,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 03/2026 · Gosta Labs · Healthcare",
+    date: "03/2026",
     title: "North-America GTM Strategy",
     description:
       "A growing healthcare AI company with a footprint in Europe, Asia, and Oceania wanted to understand more about the North America scenario. On this project, I worked on analyzing regulation, financial viability, GTM strategy, and market access paths.",
@@ -39,6 +43,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 01/2026 · Hult Cup · Technology",
+    date: "01/2026",
     title: "Engaging multiple campus over summer",
     description:
       "With campuses around the globe, the challenge here was to develop a platform that would keep students engaged over summer, engage the community with the World Cup, and promote a friendly competition between campuses.",
@@ -47,6 +52,7 @@ const englishProjects = [
   },
   {
     meta: "PROJECT · 11/2025 · Autodesk · Technology",
+    date: "11/2025",
     title: "Software optimization for data-centers",
     description:
       "When construction sites have new needs, how effectively can a leading tool grow? Here, I worked researching not only the current scenario of data-centers, but also the forecast of the whole industry. At the end, building a software improvement for Autodesk.",
@@ -85,6 +91,13 @@ const portugueseProjects = [
       "Quando os canteiros de obras têm novas necessidades, quão bem uma ferramenta líder consegue evoluir? Aqui, pesquisei o cenário atual dos data centers e também a projeção de toda a indústria. Ao final, construí uma melhoria de software para a Autodesk.",
   },
 ];
+
+export const FEED_DATES = {
+  dados: "10/2026",
+  original: "08/2026",
+} as const;
+
+export const projectDates = englishProjects.map((project) => project.date);
 
 const englishFeed = [
   "Have you ever stopped to think that perhaps the problem isn’t the crazy requests, but rather how you receive them?",
@@ -168,6 +181,16 @@ export const matchesKeyword = (query: string, parts: string[]) => {
   return terms.every((term) => haystack.includes(term));
 };
 
+export const matchesDate = (date: string, selected: string) =>
+  selected === "" || date === selected;
+
+export const uniqueDates = (dates: string[]) =>
+  Array.from(new Set(dates)).sort((a, b) => {
+    const [monthA, yearA] = a.split("/").map(Number);
+    const [monthB, yearB] = b.split("/").map(Number);
+    return yearB - yearA || monthB - monthA;
+  });
+
 const Projects = () => {
   const { lang, setLang } = useLang();
   const projects = lang === "en" ? englishProjects : portugueseProjects;
@@ -188,6 +211,7 @@ const Projects = () => {
         headline: "Let’s work together!",
         noResults: "No results for",
         clear: "Clear search",
+        allDates: "All dates",
       }
     : {
         title: "Quer conhecer meu trabalho?",
@@ -205,13 +229,34 @@ const Projects = () => {
         headline: "Vamos trabalhar juntos!",
         noResults: "Nenhum resultado para",
         clear: "Limpar busca",
+        allDates: "Todas as datas",
       };
 
   const [query, setQuery] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [dateOpen, setDateOpen] = useState(false);
+  const dateRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!dateOpen) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (dateRef.current && !dateRef.current.contains(event.target as Node)) setDateOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setDateOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [dateOpen]);
 
   const feedCards = [
     {
       key: "feed-10-2026",
+      date: FEED_DATES.dados,
       meta: labels.feedNew,
       image: dadosImage.url,
       alt: "Two colleagues reviewing a project dashboard on a computer screen",
@@ -219,6 +264,7 @@ const Projects = () => {
     },
     {
       key: "feed-08-2026",
+      date: FEED_DATES.original,
       meta: labels.feed,
       image: feedImage.url,
       alt: "You got this handwritten on grid paper",
@@ -226,12 +272,21 @@ const Projects = () => {
     },
   ];
 
-  const visibleFeeds = feedCards.filter((feed) =>
-    matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
+  const allDates = uniqueDates([
+    ...projects.map((project) => project.date),
+    ...feedCards.map((feed) => feed.date),
+  ]);
+
+  const visibleFeeds = feedCards.filter(
+    (feed) =>
+      matchesDate(feed.date, selectedDate) &&
+      matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
   );
 
-  const visibleProjects = projects.filter((project) =>
-    matchesKeyword(query, [project.meta, project.title, project.description]),
+  const visibleProjects = projects.filter(
+    (project) =>
+      matchesDate(project.date, selectedDate) &&
+      matchesKeyword(query, [project.meta, project.title, project.description]),
   );
 
   const hasResults = visibleFeeds.length > 0 || visibleProjects.length > 0;
@@ -277,7 +332,48 @@ const Projects = () => {
       <section className="mx-auto max-w-[1325px] px-6 py-4 md:px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-3">
-            <Button variant="secondary" size="sm"><SlidersHorizontal />{labels.date}</Button>
+            <div ref={dateRef} className="relative">
+              <Button
+                type="button"
+                variant={selectedDate ? "default" : "secondary"}
+                size="sm"
+                aria-haspopup="true"
+                aria-expanded={dateOpen}
+                onClick={() => setDateOpen((open) => !open)}
+              >
+                <SlidersHorizontal />
+                {selectedDate || labels.date}
+                <ChevronDown className="h-3.5 w-3.5" />
+              </Button>
+              {dateOpen && (
+                <div className="absolute left-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-md border border-border bg-background py-1 shadow-soft">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedDate("");
+                      setDateOpen(false);
+                    }}
+                    className={`block w-full px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === "" ? "bg-secondary font-medium text-primary" : "text-primary"}`}
+                  >
+                    {labels.allDates}
+                  </button>
+                  {allDates.map((date) => (
+                    <button
+                      key={date}
+                      type="button"
+                      onClick={() => {
+                        setSelectedDate(date);
+                        setDateOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-secondary ${selectedDate === date ? "bg-secondary font-medium text-primary" : "text-primary"}`}
+                    >
+                      <span>{date}</span>
+                      {selectedDate === date && <Check className="h-3.5 w-3.5" />}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <Button variant="secondary" size="sm"><SlidersHorizontal />{labels.industry}</Button>
             <Button variant="secondary" size="sm"><FileText />{labels.type}</Button>
           </div>
@@ -340,6 +436,12 @@ const Projects = () => {
                 <X />
                 <span>{labels.clear}</span>
               </Button>
+              {selectedDate !== "" && (
+                <Button variant="secondary" size="sm" onClick={() => setSelectedDate("")}>
+                  <X />
+                  <span>{labels.allDates}</span>
+                </Button>
+              )}
             </div>
           )}
         </div>
