@@ -5,6 +5,7 @@ import portrait from "@/assets/home-portrait.jpg.asset.json";
 import presentation from "@/assets/home-presenting.jpg.asset.json";
 import greenscreen from "@/assets/home-greenscreen.jpg.asset.json";
 import groupPhoto from "@/assets/home-group.jpg.asset.json";
+import storyVideo from "@/assets/home-story.mp4.asset.json";
 import { useLang } from "@/contexts/LanguageContext";
 
 
@@ -177,10 +178,15 @@ const Index = () => {
             </div>
           </div>
           <div className="justify-self-center lg:justify-self-end">
-            <img
-              src={presentation.url}
-              alt="Rebeca presenting research findings"
-              className="h-full max-h-[420px] w-full rounded-md object-cover"
+            <video
+              src={storyVideo.url}
+              poster={presentation.url}
+              aria-label="Rebeca presenting research findings"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-[495px] w-[300px] rounded-md object-cover"
             />
           </div>
         </div>
