@@ -155,6 +155,19 @@ const BrandMark = () => (
   </svg>
 );
 
+export const normalizeText = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+
+export const matchesKeyword = (query: string, parts: string[]) => {
+  const terms = normalizeText(query).split(/\s+/).filter(Boolean);
+  if (terms.length === 0) return true;
+  const haystack = normalizeText(parts.join(" "));
+  return terms.every((term) => haystack.includes(term));
+};
+
 const Projects = () => {
   const { lang, setLang } = useLang();
   const projects = lang === "en" ? englishProjects : portugueseProjects;
