@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   FEED_DATES,
   matchesDate,
+  matchesKeyword,
   projectDates,
   uniqueDates,
 } from "@/pages/Projects";
@@ -36,13 +37,18 @@ describe("projects date filter", () => {
   });
 
   it("combines with the keyword search", () => {
-    const autodesk = "PROJECT · 11/2025 · Autodesk · Technology";
-    const selected = "11/2025";
-    const hits = [autodesk, "PROJECT · 04/2026 · M&T Bank · Finance"].filter(
-      (meta) => matchesDate(meta.split(" · ")[1], selected) && matchesKeywordSafe(meta),
+    const cards = [
+      { date: "11/2025", text: "Software optimization for data-centers" },
+      { date: "04/2026", text: "Engaging gig workers with M&T capabilities" },
+      { date: "11/2025", text: "Autodesk research on data-centers" },
+    ];
+    const hits = cards.filter(
+      (card) =>
+        matchesDate(card.date, "11/2025") && matchesKeyword("data-centers", [card.text]),
     );
-    expect(hits).toEqual([autodesk]);
+    expect(hits.map((card) => card.text)).toEqual([
+      "Software optimization for data-centers",
+      "Autodesk research on data-centers",
+    ]);
   });
 });
-
-const matchesKeywordSafe = (meta: string) => meta.toLowerCase().includes("autodesk");
