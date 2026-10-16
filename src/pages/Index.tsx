@@ -93,33 +93,33 @@ const Index = () => {
       {/* Hero */}
       <section className="container grid grid-cols-1 items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-16">
         {/* Photo collage */}
-        <div className="group relative mx-auto h-[420px] w-full max-w-[560px] md:h-[520px]">
-          <div className="absolute right-0 top-0 h-[52%] w-[52%] rotate-[2deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
-            <img
-              src={headshot.url}
-              alt="Portrait of Rebeca Batista"
-              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
-            />
-          </div>
-          <div className="absolute left-0 top-[16%] h-[34%] w-[46%] rotate-[-3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+        <div className="group relative mx-auto aspect-[14/13] w-full max-w-[560px]">
+          <div className="absolute left-0 top-[2%] w-[66%] rotate-[-3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
             <img
               src={outdoors.url}
               alt="Rebeca with colleagues outdoors"
-              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+              className="block aspect-[1920/1176] w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
             />
           </div>
-          <div className="absolute bottom-0 left-0 h-[38%] w-[32%] rotate-[-4deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+          <div className="absolute right-0 top-0 w-[40%] rotate-[2deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+            <img
+              src={headshot.url}
+              alt="Portrait of Rebeca Batista"
+              className="block aspect-[1176/1920] w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+            />
+          </div>
+          <div className="absolute bottom-0 left-[4%] w-[34%] rotate-[-4deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
             <img
               src={podium.url}
               alt="Rebeca presenting at a podium"
-              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+              className="block aspect-[1176/1920] w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
             />
           </div>
-          <div className="absolute bottom-[2%] left-[30%] h-[40%] w-[58%] rotate-[3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
+          <div className="absolute bottom-[4%] right-[2%] w-[62%] rotate-[3deg] overflow-hidden rounded-lg shadow-soft transition-all duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:scale-[1.04] motion-reduce:transition-none">
             <img
               src={team.url}
               alt="Rebeca with her team"
-              className="h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
+              className="block aspect-[1920/1175] w-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.05] group-hover:blur-[3px] group-hover:opacity-60 hover:!scale-100 hover:!blur-none hover:!opacity-100 motion-reduce:transition-none"
             />
           </div>
         </div>
