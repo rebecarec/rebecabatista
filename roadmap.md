@@ -1,8 +1,8 @@
 # Roadmap
 
 ## Home page
-- [ ] Swap the four landing collage photos for the attached ones (website_v1-15, -16, -17, -18)
-- [ ] Collage hover effect: hovered photo lifts/moves discreetly, the others blur
+- [x] Swap the four landing collage photos for the attached ones (website_v1-15, -16, -17, -18)
+- [x] Collage hover effect: hovered photo lifts/moves discreetly, the others blur
 
 ## Projects page
 - [x] Date filter chip filters by month/year
