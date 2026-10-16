@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FileText,
   Github,
@@ -6,6 +7,7 @@ import {
   Mail,
   Search,
   SlidersHorizontal,
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -153,6 +155,19 @@ const BrandMark = () => (
   </svg>
 );
 
+export const normalizeText = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+
+export const matchesKeyword = (query: string, parts: string[]) => {
+  const terms = normalizeText(query).split(/\s+/).filter(Boolean);
+  if (terms.length === 0) return true;
+  const haystack = normalizeText(parts.join(" "));
+  return terms.every((term) => haystack.includes(term));
+};
+
 const Projects = () => {
   const { lang, setLang } = useLang();
   const projects = lang === "en" ? englishProjects : portugueseProjects;
@@ -171,6 +186,8 @@ const Projects = () => {
         feedTitle: "LinkedIn Content",
         contact: "Contact",
         headline: "Let’s work together!",
+        noResults: "No results for",
+        clear: "Clear search",
       }
     : {
         title: "Quer conhecer meu trabalho?",
@@ -186,7 +203,38 @@ const Projects = () => {
         feedTitle: "Conteúdo no LinkedIn",
         contact: "Contato",
         headline: "Vamos trabalhar juntos!",
+        noResults: "Nenhum resultado para",
+        clear: "Limpar busca",
       };
+
+  const [query, setQuery] = useState("");
+
+  const feedCards = [
+    {
+      key: "feed-10-2026",
+      meta: labels.feedNew,
+      image: dadosImage.url,
+      alt: "Two colleagues reviewing a project dashboard on a computer screen",
+      paragraphs: lang === "en" ? englishDados : portugueseDados,
+    },
+    {
+      key: "feed-08-2026",
+      meta: labels.feed,
+      image: feedImage.url,
+      alt: "You got this handwritten on grid paper",
+      paragraphs: lang === "en" ? englishFeed : portugueseFeed,
+    },
+  ];
+
+  const visibleFeeds = feedCards.filter((feed) =>
+    matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
+  );
+
+  const visibleProjects = projects.filter((project) =>
+    matchesKeyword(query, [project.meta, project.title, project.description]),
+  );
+
+  const hasResults = visibleFeeds.length > 0 || visibleProjects.length > 0;
 
   return (
     <main className="min-h-screen bg-background text-primary">
@@ -236,42 +284,43 @@ const Projects = () => {
           <label className="flex h-9 w-full items-center gap-3 rounded-lg border border-secondary bg-background px-3 text-foreground md:w-[296px]">
             <Search className="h-4 w-4" aria-hidden="true" />
             <input
-              type="search"
+              type="text"
               aria-label={labels.search}
               placeholder={labels.search}
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
               className="w-full bg-transparent text-sm outline-none placeholder:text-foreground"
             />
+            {query.trim() !== "" && (
+              <button
+                type="button"
+                onClick={() => setQuery("")}
+                aria-label={labels.clear}
+                className="shrink-0 rounded-sm transition-colors hover:text-primary"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </label>
         </div>
 
         <div className="mt-4 space-y-4">
-          <article className="grid min-h-[350px] overflow-hidden rounded-lg border border-accent bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
-            <div className="min-w-0 pr-1">
-              <p className="text-lg">{labels.feedNew}</p>
-              <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
-              <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
-                {(lang === "en" ? englishDados : portugueseDados).map((paragraph, index) => (
-                  <p key={index} className={index === 0 ? "" : "mt-4"}>{paragraph}</p>
-                ))}
+          {visibleFeeds.map((feed) => (
+            <article key={feed.key} className="grid min-h-[350px] overflow-hidden rounded-lg border border-accent bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
+              <div className="min-w-0 pr-1">
+                <p className="text-lg">{feed.meta}</p>
+                <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
+                <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
+                  {feed.paragraphs.map((paragraph, index) => (
+                    <p key={index} className={index === 0 ? "" : "mt-4"}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
-            </div>
-            <img src={dadosImage.url} alt="Two colleagues reviewing a project dashboard on a computer screen" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
-          </article>
+              <img src={feed.image} alt={feed.alt} className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
+            </article>
+          ))}
 
-          <article className="grid min-h-[350px] overflow-hidden rounded-lg border border-accent bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
-            <div className="min-w-0 pr-1">
-              <p className="text-lg">{labels.feed}</p>
-              <h2 className="display mt-2 text-2xl font-semibold text-foreground">{labels.feedTitle}</h2>
-              <div className="mt-5 h-[196px] overflow-y-auto pr-5 text-[17px] leading-relaxed text-accent">
-                {(lang === "en" ? englishFeed : portugueseFeed).map((paragraph, index) => (
-                  <p key={index} className={index === 0 ? "" : "mt-4"}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-            <img src={feedImage.url} alt="You got this handwritten on grid paper" className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
-          </article>
-
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <article key={project.meta} className="grid min-h-[350px] overflow-hidden rounded-lg border border-foreground bg-card p-6 md:grid-cols-[minmax(0,1.45fr)_minmax(340px,1fr)] md:gap-6">
               <div className="min-w-0">
                 <p className="text-lg">{project.meta}</p>
@@ -281,6 +330,18 @@ const Projects = () => {
               <img src={project.image} alt={project.alt} className="mt-5 h-[302px] w-full rounded-lg object-cover md:mt-0" />
             </article>
           ))}
+
+          {!hasResults && (
+            <div className="flex min-h-[160px] flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-secondary bg-card p-8 text-center">
+              <p className="text-lg text-foreground">
+                {labels.noResults} “{query.trim()}”.
+              </p>
+              <Button variant="secondary" size="sm" onClick={() => setQuery("")}>
+                <X />
+                <span>{labels.clear}</span>
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
