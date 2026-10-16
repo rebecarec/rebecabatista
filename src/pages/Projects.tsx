@@ -173,6 +173,8 @@ const Projects = () => {
         feedTitle: "LinkedIn Content",
         contact: "Contact",
         headline: "Let’s work together!",
+        noResults: "No results for",
+        clear: "Clear search",
       }
     : {
         title: "Quer conhecer meu trabalho?",
@@ -188,7 +190,38 @@ const Projects = () => {
         feedTitle: "Conteúdo no LinkedIn",
         contact: "Contato",
         headline: "Vamos trabalhar juntos!",
+        noResults: "Nenhum resultado para",
+        clear: "Limpar busca",
       };
+
+  const [query, setQuery] = useState("");
+
+  const feedCards = [
+    {
+      key: "feed-10-2026",
+      meta: labels.feedNew,
+      image: dadosImage.url,
+      alt: "Two colleagues reviewing a project dashboard on a computer screen",
+      paragraphs: lang === "en" ? englishDados : portugueseDados,
+    },
+    {
+      key: "feed-08-2026",
+      meta: labels.feed,
+      image: feedImage.url,
+      alt: "You got this handwritten on grid paper",
+      paragraphs: lang === "en" ? englishFeed : portugueseFeed,
+    },
+  ];
+
+  const visibleFeeds = terms.length
+    ? feedCards.filter((feed) => matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]))
+    : feedCards;
+
+  const visibleProjects = terms.length
+    ? projects.filter((project) => matchesKeyword(query, [project.meta, project.title, project.description]))
+    : projects;
+
+  const hasResults = visibleFeeds.length > 0 || visibleProjects.length > 0;
 
   return (
     <main className="min-h-screen bg-background text-primary">
