@@ -226,13 +226,13 @@ const Projects = () => {
     },
   ];
 
-  const visibleFeeds = terms.length
-    ? feedCards.filter((feed) => matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]))
-    : feedCards;
+  const visibleFeeds = feedCards.filter((feed) =>
+    matchesKeyword(query, [feed.meta, labels.feedTitle, ...feed.paragraphs]),
+  );
 
-  const visibleProjects = terms.length
-    ? projects.filter((project) => matchesKeyword(query, [project.meta, project.title, project.description]))
-    : projects;
+  const visibleProjects = projects.filter((project) =>
+    matchesKeyword(query, [project.meta, project.title, project.description]),
+  );
 
   const hasResults = visibleFeeds.length > 0 || visibleProjects.length > 0;
 
