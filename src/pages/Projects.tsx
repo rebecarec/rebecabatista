@@ -305,31 +305,29 @@ const Projects = () => {
 
   return (
     <main className="min-h-screen bg-background text-primary">
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-xl">
-        <nav className="container flex h-16 items-center justify-between">
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-xl">
+        <nav className="container flex h-14 items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5" aria-label="Rebeca Batista home">
             <BrandMark />
-            <span className="display text-xl">Rebeca Batista</span>
+            <span className="display text-lg text-primary">Rebeca Batista</span>
           </Link>
-          <div className="flex items-center gap-3">
-            <NavDropdown
-              buttonClassName="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-primary transition-colors hover:bg-secondary/80"
-              iconClassName="h-5 w-5"
-            />
-            <Button
+          <div className="flex items-center gap-2">
+            <NavDropdown buttonClassName="grid h-8 w-9 place-items-center rounded-md bg-secondary text-primary transition-colors hover:bg-border/60" />
+            <button
               type="button"
-              variant="secondary"
-              size="sm"
               onClick={() => setLang(lang === "en" ? "pt" : "en")}
               aria-label={labels.translate}
-              className="gap-2 px-3.5"
+              className="flex h-8 items-center gap-1.5 rounded-md bg-secondary px-3 text-primary transition-colors hover:bg-border/60"
             >
-              <Languages />
-              <span>{labels.translate}</span>
-            </Button>
-            <Button asChild size="sm" className="px-4">
-              <a href="#contact">{labels.connect}</a>
-            </Button>
+              <Languages className="h-4 w-4" />
+              <span className="text-sm font-medium">{labels.translate}</span>
+            </button>
+            <a
+              href="#contact"
+              className="rounded-md bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              {labels.connect}
+            </a>
           </div>
         </nav>
       </header>
